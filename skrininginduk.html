@@ -109,6 +109,8 @@
 
         <!-- <div class="container" id="form1"> -->
         <div class="container">
+
+          
           <h1 class="text-center text-primary">SKRINING PUSKESMAS TRENGGALEK</h1>
           <hr />
           <br />
@@ -190,12 +192,15 @@
               <div class="card-body">
                 <h6 class="card-title">Skrining Usia Dewasa dan Lansia</h6>
                 <p class="card-text">Klaster 3 </p>
-                <a
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#patientSearchModal">
+                  Cari Pasien
+                </button>
+<!--                 <a
                   href="https://docs.google.com/spreadsheets/d/1HOu0fS_LMPMSEx4jHbz78MR9ji6mgYwedR2S3nGTVig/edit?usp=sharing"
                   target="_blank"
                   class="btn btn-primary"
                   >Go to File</a
-                >
+                > -->
               </div>
             </div>
           </div>
@@ -205,6 +210,134 @@
         <!-- </div> -->
       </div>
 
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#patientSearchModal">
+  Cari Pasien
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="patientSearchModal" tabindex="-1" aria-labelledby="patientSearchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-primary fw-bold" id="patientSearchModalLabel">Cari Pasien</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <hr />
+        <div class="search-container">
+          <label for="searchName" class="form-label">Pilih Nama Pasien:</label>
+          <select id="searchName" class="form-select select2" style="width: 100%">
+            <option value="">-- Pilih Nama --</option>
+          </select>
+        </div>
+
+        <div id="patientDetails" class="mt-4" style="display: none">
+          <table class="table table-striped">
+            <thead class="table-success">
+              <tr>
+                <th>Nama</th>
+                <th>NIK</th>
+                <th>Tanggal Skrining</th>
+                <th>Tanggal Lahir</th>
+                <th>Usia</th>
+                <th>Jenis Kelamin</th>
+                <th>Alamat</th>
+                <th>Tempat Pelayanan</th>
+                <th>Jenis Skrining</th>
+                <th>Nama Petugas</th>
+                <th>Wilayah</th>
+              </tr>
+            </thead>
+            <tbody id="patientTableBody"></tbody>
+          </table>
+
+           <a
+                  href="https://docs.google.com/spreadsheets/d/1HOu0fS_LMPMSEx4jHbz78MR9ji6mgYwedR2S3nGTVig/edit?usp=sharing"
+                  target="_blank"
+                  class="btn btn-primary"
+                  >Go to File</a
+                >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    const apiUrl = "https://script.google.com/macros/s/AKfycbzt7PAW2PijPUQQwWvzqZso5oCkuh5H9VduEYgq3H5dWI-07B32TcGW04-HWMgt4Kxt/exec?action=get-data";
+    let patients = [];
+
+    function formatDate(dateString) {
+      if (!dateString) return "N/A";
+      let date = new Date(dateString);
+      if (isNaN(date.getTime())) {
+        let parts = dateString.split(/[-\/]/);
+        if (parts.length === 3) {
+          let [day, month, year] = parts;
+          if (year.length === 4) {
+            return `${day.padStart(2, "0")}/${month.padStart(2, "0")}/${year}`;
+          }
+          return `${parts[2].padStart(2, "0")}/${parts[1].padStart(2, "0")}/${parts[0]}`;
+        }
+        return dateString;
+      }
+      return `${String(date.getDate()).padStart(2, "0")}/${String(date.getMonth() + 1).padStart(2, "0")}/${date.getFullYear()}`;
+    }
+
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          patients = data.data;
+          let uniqueNames = [...new Set(patients.map((p) => p.Nama))];
+          uniqueNames.forEach((name) => {
+            $("#searchName").append(new Option(name, name));
+          });
+        }
+      })
+      .catch((error) => console.error("Error:", error));
+
+    $(".select2").select2({
+      placeholder: "Cari nama pasien...",
+      allowClear: true,
+    });
+
+    $("#searchName").change(function () {
+      let selectedName = $(this).val();
+      let selectedPatients = patients.filter((p) => p.Nama === selectedName);
+      let tableBody = $("#patientTableBody");
+      tableBody.empty();
+
+      if (selectedPatients.length > 0) {
+        selectedPatients.forEach((patient) => {
+          tableBody.append(`
+            <tr>
+              <td>${patient.Nama || "N/A"}</td>
+              <td>${patient.Nik || "N/A"}</td>
+              <td>${formatDate(patient.Tanggal_input) || "N/A"}</td>
+              <td>${formatDate(patient.Tgl_lahir) || "N/A"}</td>
+              <td>${patient.Usia || "N/A"} tahun</td>
+              <td>${patient.Jenis || "N/A"}</td>
+              <td>${patient.Alamat || "N/A"}</td>
+              <td>${patient.Poli || "N/A"}</td>
+              <td>${patient.Jenis_skrining || "N/A"}</td>
+              <td>${patient.Nama_petugas || "N/A"}</td>
+              <td>${patient.Wilayah || "N/A"}</td>
+            </tr>
+          `);
+        });
+        $("#patientDetails").show();
+      } else {
+        $("#patientDetails").hide();
+      }
+    });
+  });
+</script>
+
+        
       <!-- Hero Header End -->
     </div>
     <!-- Navbar & Hero End -->
