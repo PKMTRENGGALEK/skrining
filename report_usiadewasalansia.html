@@ -353,13 +353,13 @@
                   (item) => parseInt(item.USIA || 0 ) <= 59
                 ).length;
                 const totalobesitas = filteredData.filter(
-                  (item) =>  parseInt(item.USIA || 0 ) <= 59 && (item.Dilakukan_skrining_obesitas   = 'YA')
+                  (item) =>  parseInt(item.USIA || 0 ) <= 59 && (item.Dilakukan_skrining_obesitas   == 'YA')
                 ).length;
                 const ditemukanobesitas = filteredData.filter(
                   (item) =>parseInt(item.USIA || 0 ) <= 59 && (item.Hasil_obesitas == 1)
                 ).length;
                 const totalobesitas60 = filteredData.filter(
-                  (item) =>  parseInt(item.USIA || 0 ) >= 60 && (item.Dilakukan_skrining_obesitas   = 'YA')
+                  (item) =>  parseInt(item.USIA || 0 ) >= 60 && (item.Dilakukan_skrining_obesitas   == 'YA')
                 ).length;
                 const ditemukanobesitas60 = filteredData.filter(
                   (item) =>parseInt(item.USIA || 0 ) >= 60 && (item.Hasil_obesitas == 1)
@@ -369,13 +369,13 @@
                 ).length;
                 //HT
                 const totalHT = filteredData.filter(
-                  (item) =>  parseInt(item.USIA || 0 ) <= 59 && (item.Dilakukan_skrining_HT   = 'YA')
+                  (item) =>  parseInt(item.USIA || 0 ) <= 59 && (item.Dilakukan_skrining_HT   == 'YA')
                 ).length;
                 const ditemukanHT = filteredData.filter(
                   (item) =>parseInt(item.USIA || 0 ) <= 59 && (item.Ditemukan_HT == 1)
                 ).length;
                 const totalHT60 = filteredData.filter(
-                  (item) =>  parseInt(item.USIA || 0 ) >= 60 && (item.Dilakukan_skrining_HT   = 'YA')
+                  (item) =>  parseInt(item.USIA || 0 ) >= 60 && (item.Dilakukan_skrining_HT   == 'YA')
                 ).length;
                 const ditemukanHT60 = filteredData.filter(
                   (item) =>parseInt(item.USIA || 0 ) >= 60 && (item.Ditemukan_HT == 1)
