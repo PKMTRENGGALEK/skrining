@@ -59,10 +59,30 @@
       <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
   <style>
-    .highlight-number {
+      .header img {
+        height: 80px;
+      }
+      .highlight-number {
         font-size: 1.5rem;
         font-weight: bold;
         color: #007bff;
+      }
+      #loading-page {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #007bff;
+        z-index: 9999;
+      }
+      .card-e:hover {
+        transform: scale(1.05);
+        transition: 0.3s ease-in-out;
       }
   </style>  
   </head>
@@ -128,11 +148,11 @@
 <!--         https://docs.google.com/spreadsheets/d/1b-t0uL56KjwjFl0BbzNTp0my2yTaYqrwgosDyXDuDsM/edit?usp=sharing -->
         
     
-  
+         <body class="bg-light">
+    <div id="loading-page">Memuat data...</div>
     <div class="container my-4">
       <div class="card shadow">
         <div class="card-body">
-
           <div class="header text-center mb-3">
             <h2>REKAP SKRINING KLASTER 3</h2>
             <p><strong>INDUK PUSKESMAS TRENGGALEK</strong></p>
@@ -144,91 +164,87 @@
               <label for="tahun">Tahun:</label>
               <select id="tahun" class="form-select select2">
                 <option value="">Pilih Tahun</option>
-                <!-- <option value="2024">2024</option> -->
-                <option value="2025">2025</option>
               </select>
             </div>
             <div class="col-md-4">
               <label for="bulan">Bulan:</label>
               <select id="bulan" class="form-select select2">
                 <option value="">Semua Bulan</option>
-                <option value="1">Januari</option>
-                <option value="2">Februari</option>
-                <option value="3">Maret</option>
-                <option value="4">April</option>
-                <option value="5">Mei</option>
-                <option value="6">Juni</option>
-                <option value="7">Juli</option>
-                <option value="8">Agustus</option>
-                <option value="9">September</option>
-                <option value="10">Oktober</option>
-                <option value="11">November</option>
-                <option value="12">Desember</option>
               </select>
             </div>
             <div class="col-md-4">
               <label for="petugas">Petugas:</label>
-              <select id="petugas" class="form-select select2"></select>
-            </div>
-            
+              <select id="petugas" class="form-select select2">
+                <option value="">Semua Petugas</option>
+              </select>
             </div>
           </div>
 
-          <!-- Total Section -->
+          <!-- Cards Section -->
           <div class="row text-center">
             <div class="col-md-4">
-              <p>Total Skrining Klaster 3:</p>
-              <p class="highlight-number" id="total-klaster">0</p>
+              <div class="card card-e mt-3 shadow">
+                <div class="card-body">
+                  <h5 class="card-title">Total Skrining</h5>
+                  <p class="highlight-number" id="total-skrining">0</p>
+                </div>
+              </div>
             </div>
             <div class="col-md-4">
-              <p>Total Skrining 18-59 Tahun:</p>
-              <p class="highlight-number" id="total-18-59">0</p>
+              <div class="card card-e mt-3 shadow">
+                <div class="card-body">
+                  <h5 class="card-title">Total Skrining 18-59 TH</h5>
+                  <p class="highlight-number" id="total-skrining-18-59">0</p>
+                </div>
+              </div>
             </div>
             <div class="col-md-4">
-              <p>Total Skrining ≥60 Tahun:</p>
-              <p class="highlight-number" id="total-60">0</p>
+              <div class="card card-e mt-3 shadow">
+                <div class="card-body">
+                  <h5 class="card-title">Total Skrining 60 TH</h5>
+                  <p class="highlight-number" id="total-skrining-60">0</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="container">
-            <!-- Tabel Rekap Skrining -->
-            <div class="table-responsive mt-4">
-                <table class="table table-bordered table-striped">
-                <thead class="table-primary text-center">
-                    <tr>
+
+          
+           <table class="table table-bordered text-center mt-4 shadow">
+            <thead class="table-primary">
+                <tr>
                     <th rowspan="2">NO</th>
                     <th rowspan="2">INDIKATOR</th>
                     <th colspan="2">18-59 TH</th>
                     <th colspan="2">60 TH</th>
-                    </tr>
-                    <tr>
-                    <th>TOTAL SKRINING</th>
-                    <th>DITEMUKAN</th>
-                    <th>TOTAL SKRINING</th>
-                    <th>DITEMUKAN</th>
-                    </tr>
-                </thead>
-                <tbody id="rekap-tbody">
-                    <tr>
-                        <td>1</td>
-                        <td>SKRINING OBESITAS</td>
-                        <td id="total-18-59-obesitas" class="text-center"></td>
-                        <td id="totalditemukanobesitas" class="text-center"></td>
-                        <td id="total60-obesitas" class="text-center"></td>
-                        <td id="total60obesitas" class="text-center"></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>SKRINING HT</td>
-                        <td id="total-18-59-HT" class="text-center"></td>
-                        <td id="totalditemukanHT" class="text-center"></td>
-                        <td id="total60-HT" class="text-center"></td>
-                        <td id="total60HT" class="text-center"></td>
-                    </tr>
-                </tbody>
-                </table>
-            </div>
-          </div>
-          
+                </tr>
+                <tr>
+                    <th>Total Skrining</th>
+                    <th>Ditemukan</th>
+                    <th>Total Skrining</th>
+                    <th>Ditemukan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td class="text-start">Skrining Obesitas</td>
+                    <td id="Skriningobesitas-59">-</td>
+                    <td id="Skriningobesitas-59TEMU">-</td>
+                    <td id="skriningHT-60">-</td>
+                    <td id="skrinigHT-60ketemu">-</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="text-start">Skrining HT</td>
+                    <td id="ht-59">-</td>
+                    <td id="ht-59temu">-</td>
+                    <td id="ht-60">-</td>
+                    <td id="ht-60temu">-</td>
+                </tr>
+                
+            </tbody>
+        </table>
+
         </div>
       </div>
     </div>
@@ -292,115 +308,74 @@
 
     <!-- Template Javascript -->
     <script src="main.js"></script>
+      
     <script>
-      $(document).ready(function () {
+       $(document).ready(function () {
         $(".select2").select2({
           theme: "bootstrap4",
           width: "100%",
           allowClear: true,
         });
 
-        const apiUrl =
-          "https://script.google.com/macros/s/AKfycbxeDPM5nRIt7TeTfKTgL4PSyCFzzhNlHVbo-jUcSjoeif7dkZYdAvFagPIVH1YnXoOi/exec";
-        $("#loading").show(); // Tampilkan loading sebelum fetch data
+        const apiUrl = "https://script.google.com/macros/s/AKfycbxeDPM5nRIt7TeTfKTgL4PSyCFzzhNlHVbo-jUcSjoeif7dkZYdAvFagPIVH1YnXoOi/exec";
+
+        $("#loading-page").show();
+
         fetch(apiUrl)
           .then((response) => response.json())
           .then((data) => {
-            $("#loading").hide(); // Sembunyikan loading setelah data dimuat
+            $("#loading-page").fadeOut(500);
+
             let petugasSet = new Set();
+            let tahunSet = new Set();
+            let bulanSet = new Set();
+
             data.forEach((item) => {
               if (item.Petugas) {
-                item.Petugas.split(",").forEach((p) =>
-                  petugasSet.add(p.trim())
-                );
+                item.Petugas.split(",").forEach((p) => petugasSet.add(p.trim()));
+              }
+              if (item.TANGGAL) {
+                let date = new Date(item.TANGGAL);
+                if (!isNaN(date)) {
+                  tahunSet.add(date.getFullYear());
+                  bulanSet.add(date.getMonth() + 1);
+                }
               }
             });
 
-            $("#petugas").append('<option value="">Semua Petugas</option>');
-            petugasSet.forEach((petugas) => {
-              $("#petugas").append(
-                `<option value="${petugas}">${petugas}</option>`
-              );
-            });
-            
-            // Event listener for filters
-            $("#petugas, #bulan, #tahun").on("change", filterData);
+            $("#tahun").append([...tahunSet].map((tahun) => `<option value="${tahun}">${tahun}</option>`));
+            $("#petugas").append([...petugasSet].map((petugas) => `<option value="${petugas}">${petugas}</option>`));
+
+            const bulanNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+            $("#bulan").append([...bulanSet].map((bulan) => `<option value="${bulan}">${bulanNames[bulan - 1]}</option>`));
 
             function filterData() {
-             
-                const selectedTahun = $("#tahun").val();
-                const selectedPetugas = $("#petugas").val();
-                const selectedBulan = $("#bulan").val();
+              const selectedTahun = $("#tahun").val();
+              const selectedBulan = $("#bulan").val();
+              const selectedPetugas = $("#petugas").val();
 
-                const filteredData = data.filter((item) => {
-                  const petugasMatch = selectedPetugas
-                    ? item.Petugas?.split(",")
-                        .map((p) => p.trim())
-                        .includes(selectedPetugas)
-                    : true;
-                  const bulanMatch = selectedBulan
-                    ? item.TANGGAL &&
-                      new Date(item.TANGGAL).getMonth() + 1 == selectedBulan
-                    : true;
-                  const tahunMatch = selectedTahun
-                    ? item.TANGGAL &&
-                      new Date(item.TANGGAL).getFullYear() == selectedTahun
-                    : true;
-                  return petugasMatch && bulanMatch && tahunMatch;
-                });
-                //obesitas
-                const total18_59 = filteredData.filter(
-                  (item) => parseInt(item.USIA || 0 ) <= 59
-                ).length;
-                const totalobesitas = filteredData.filter(
-                  (item) =>  parseInt(item.USIA || 0 ) <= 59 && (item.Dilakukan_skrining_obesitas   == 'YA')
-                ).length;
-                const ditemukanobesitas = filteredData.filter(
-                  (item) =>parseInt(item.USIA || 0 ) <= 59 && (item.Hasil_obesitas == 1)
-                ).length;
-                const totalobesitas60 = filteredData.filter(
-                  (item) =>  parseInt(item.USIA || 0 ) >= 60 && (item.Dilakukan_skrining_obesitas   == 'YA')
-                ).length;
-                const ditemukanobesitas60 = filteredData.filter(
-                  (item) =>parseInt(item.USIA || 0 ) >= 60 && (item.Hasil_obesitas == 1)
-                ).length;
-                const total60 = filteredData.filter(
-                  (item) => parseInt(item.USIA || 0) >= 60
-                ).length;
-                //HT
-                const totalHT = filteredData.filter(
-                  (item) =>  parseInt(item.USIA || 0 ) <= 59 && (item.Dilakukan_skrining_HT   == 'YA')
-                ).length;
-                const ditemukanHT = filteredData.filter(
-                  (item) =>parseInt(item.USIA || 0 ) <= 59 && (item.Ditemukan_HT == 1)
-                ).length;
-                const totalHT60 = filteredData.filter(
-                  (item) =>  parseInt(item.USIA || 0 ) >= 60 && (item.Dilakukan_skrining_HT   == 'YA')
-                ).length;
-                const ditemukanHT60 = filteredData.filter(
-                  (item) =>parseInt(item.USIA || 0 ) >= 60 && (item.Ditemukan_HT == 1)
-                ).length;
+              const filteredData = data.filter((item) => {
+                return (!selectedTahun || new Date(item.TANGGAL).getFullYear() == selectedTahun) &&
+                       (!selectedBulan || new Date(item.TANGGAL).getMonth() + 1 == selectedBulan) &&
+                       (!selectedPetugas || item.Petugas?.includes(selectedPetugas));
+              });
 
-                $("#total-18-59").text(total18_59);
-                $("#total-18-59-obesitas").text(totalobesitas);
-
-                $("#total-18-59-HT").text(totalHT);
-                $("#totalditemukanHT").text(ditemukanHT);
-                $("#total60-HT").text(totalHT60);
-                $("#total60HT").text(ditemukanHT60);
-
-
-                $("#totalditemukanobesitas").text(ditemukanobesitas);
-                $("#total60-obesitas").text(totalobesitas60);
-                $("#total60obesitas").text(ditemukanobesitas60);
-                $("#total-60").text(total60);
-                $("#total-klaster").text(total18_59 + total60);
-                
+              $("#total-skrining").text(filteredData.length);
+              $("#total-skrining-18-59").text(filteredData.filter(item => !isNaN(parseInt(item.USIA)) && parseInt(item.USIA) <= 59).length);
+              $("#total-skrining-60").text(filteredData.filter(item => !isNaN(parseInt(item.USIA)) && parseInt(item.USIA) >= 60 ).length);
+              $("#Skriningobesitas-59").text(filteredData.filter(item => item.Dilakukan_skrining_obesitas && parseInt(item.USIA) <= 59).length);
+              $("#Skriningobesitas-59TEMU").text(filteredData.filter(item => item.Hasil_obesitas && parseInt(item.USIA) <= 59).length);
+              $("#skriningHT-60").text(filteredData.filter(item => item.Dilakukan_skrining_obesitas && parseInt(item.USIA) >= 60).length);
+              $("#skrinigHT-60ketemu").text(filteredData.filter(item => item.Hasil_obesitas && parseInt(item.USIA) >= 60).length);
+              $("#ht-59").text(filteredData.filter(item => item.Dilakukan_skrining_HT && parseInt(item.USIA) <= 59).length);
+              $("#ht-59temu").text(filteredData.filter(item => item.Ditemukan_HT && parseInt(item.USIA) <= 59).length);
+              $("#ht-60").text(filteredData.filter(item => item.Dilakukan_skrining_HT && parseInt(item.USIA) >= 60).length);
+              $("#ht-60temu").text(filteredData.filter(item => item.Ditemukan_HT && parseInt(item.USIA) >= 60).length);
             }
-          })
-          .catch((error) => console.error("Error fetching data:", error));
+
+            $("#tahun, #bulan, #petugas").on("change", filterData);
+          });
       });
-      
     </script>
   </body>
 </html>
