@@ -209,7 +209,7 @@
           </div>
 
           
-           <table class="table table-bordered text-center mt-4 shadow">
+          <table class="table table-bordered text-center mt-4 shadow">
             <thead class="table-primary">
                 <tr>
                     <th rowspan="2">NO</th>
@@ -227,7 +227,7 @@
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td class="text-start">Skrining Obesitas</td>
+                    <td class="text-start">SKRNING OBESITAS</td>
                     <td id="Skriningobesitas-59">-</td>
                     <td id="Skriningobesitas-59TEMU">-</td>
                     <td id="skriningHT-60">-</td>
@@ -235,11 +235,75 @@
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td class="text-start">Skrining HT</td>
+                    <td class="text-start">SKRINING HT</td>
                     <td id="ht-59">-</td>
                     <td id="ht-59temu">-</td>
                     <td id="ht-60">-</td>
                     <td id="ht-60temu">-</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="text-start">SKRINING STROKE</td>
+                    <td id="stroke-59">-</td>
+                    <td id="stroke-59temu">-</td>
+                    <td id="stroke-60">-</td>
+                    <td id="stroke-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>4</td>
+                    <td class="text-start">SKRINING JANTUNG</td>
+                    <td id="jantung-59">-</td>
+                    <td id="jantung-59temu">-</td>
+                    <td id="jantung-60">-</td>
+                    <td id="jantung-60temu">-</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="text-start">SKRINING CA SERVIX</td>
+                    <td id="cervix-59">-</td>
+                    <td id="cervix-59temu">-</td>
+                    <td id="cervix-60">-</td>
+                    <td id="cervix-60temu">-</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="text-start">SKRINING CA MAMAE</td>
+                    <td id="mamae-59">-</td>
+                    <td id="mamae-59temu">-</td>
+                    <td id="mamae-60">-</td>
+                    <td id="mamae-60temu">-</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="text-start">SKRINING CA KOLORECTAL</td>
+                    <td id="Kolorektal-59">-</td>
+                    <td id="Kolorektal-59temu">-</td>
+                    <td id="Kolorektal-60">-</td>
+                    <td id="Kolorektal-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>8</td>
+                    <td class="text-start">SKRINING CA PARU</td>
+                    <td id="paru-59">-</td>
+                    <td id="paru-59temu">-</td>
+                    <td id="paru-60">-</td>
+                    <td id="paru-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>9</td>
+                    <td class="text-start">SKRINING DM</td>
+                    <td id="diabetes-59">-</td>
+                    <td id="diabetes-59temu">-</td>
+                    <td id="diabetes-60">-</td>
+                    <td id="diabetes-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>9</td>
+                    <td class="text-start">SKRINING PPOK</td>
+                    <td id="ppok-59">-</td>
+                    <td id="ppok-59temu">-</td>
+                    <td id="ppok-60">-</td>
+                    <td id="ppok-60temu">-</td>
                 </tr>
                 
             </tbody>
@@ -310,7 +374,7 @@
     <script src="main.js"></script>
       
     <script>
-       $(document).ready(function () {
+      $(document).ready(function () {
         $(".select2").select2({
           theme: "bootstrap4",
           width: "100%",
@@ -371,6 +435,46 @@
               $("#ht-59temu").text(filteredData.filter(item => item.Ditemukan_HT && parseInt(item.USIA) <= 59).length);
               $("#ht-60").text(filteredData.filter(item => item.Dilakukan_skrining_HT && parseInt(item.USIA) >= 60).length);
               $("#ht-60temu").text(filteredData.filter(item => item.Ditemukan_HT && parseInt(item.USIA) >= 60).length);
+
+              $("#stroke-59").text(filteredData.filter(item => item.Stroke && parseInt(item.USIA) <= 59).length);
+              $("#stroke-59temu").text(filteredData.filter(item => item.Hasil_Stroke && parseInt(item.USIA) <= 59).length);
+              $("#stroke-60").text(filteredData.filter(item => item.Stroke && parseInt(item.USIA) >= 60).length);
+              $("#stroke-60temu").text(filteredData.filter(item => item.Hasil_Stroke && parseInt(item.USIA) >= 60).length);
+
+              $("#jantung-59").text(filteredData.filter(item => item.Jantung && parseInt(item.USIA) <= 59).length);
+              $("#jantung-59temu").text(filteredData.filter(item => item.Hasil_Jantung && parseInt(item.USIA) <= 59).length);
+              $("#jantung-60").text(filteredData.filter(item => item.Jantung && parseInt(item.USIA) >= 60).length);
+              $("#jantung-60temu").text(filteredData.filter(item => item.Hasil_Jantung && parseInt(item.USIA) >= 60).length);
+
+              $("#cervix-59").text(filteredData.filter(item => item.Cervix && parseInt(item.USIA) <= 59).length);
+              $("#cervix-59temu").text(filteredData.filter(item => item.Hasil_cervix && parseInt(item.USIA) <= 59).length);
+              $("#cervix-60").text(filteredData.filter(item => item.Cervix && parseInt(item.USIA) >= 60).length);
+              $("#cervix-60temu").text(filteredData.filter(item => item.Hasil_cervix && parseInt(item.USIA) >= 60).length);
+
+              $("#mamae-59").text(filteredData.filter(item => item.Mamae && parseInt(item.USIA) <= 59).length);
+              $("#mamae-59temu").text(filteredData.filter(item => item.Hasil_mamae && parseInt(item.USIA) <= 59).length);
+              $("#mamae-60").text(filteredData.filter(item => item.Mamae && parseInt(item.USIA) >= 60).length);
+              $("#mamae-60temu").text(filteredData.filter(item => item.Hasil_mamae && parseInt(item.USIA) >= 60).length);
+
+              $("#Kolorektal-59").text(filteredData.filter(item => item.Kolorektal && parseInt(item.USIA) <= 59).length);
+              $("#Kolorektal-59temu").text(filteredData.filter(item => item.Hasil_Kolorektal && parseInt(item.USIA) <= 59).length);
+              $("#Kolorektal-60").text(filteredData.filter(item => item.Kolorektal && parseInt(item.USIA) >= 60).length);
+              $("#Kolorektal-60temu").text(filteredData.filter(item => item.Hasil_Kolorektal && parseInt(item.USIA) >= 60).length);
+
+              $("#paru-59").text(filteredData.filter(item => item.Paru && parseInt(item.USIA) <= 59).length);
+              $("#paru-59temu").text(filteredData.filter(item => item.Hasil_Paru && parseInt(item.USIA) <= 59).length);
+              $("#paru-60").text(filteredData.filter(item => item.Paru && parseInt(item.USIA) >= 60).length);
+              $("#paru-60temu").text(filteredData.filter(item => item.Hasil_Paru && parseInt(item.USIA) >= 60).length);
+
+              $("#diabetes-59").text(filteredData.filter(item => item.Diabetes && parseInt(item.USIA) <= 59).length);
+              $("#diabetes-59temu").text(filteredData.filter(item => item.Hasil_Diabetes && parseInt(item.USIA) <= 59).length);
+              $("#diabetes-60").text(filteredData.filter(item => item.Diabetes && parseInt(item.USIA) >= 60).length);
+              $("#diabetes-60temu").text(filteredData.filter(item => item.Hasil_Diabetes && parseInt(item.USIA) >= 60).length);
+
+              $("#ppok-59").text(filteredData.filter(item => item.Ppok && parseInt(item.USIA) <= 59).length);
+              $("#ppok-59temu").text(filteredData.filter(item => item.Hasil_Ppok && parseInt(item.USIA) <= 59).length);
+              $("#ppok-60").text(filteredData.filter(item => item.Ppok && parseInt(item.USIA) >= 60).length);
+              $("#ppok-60temu").text(filteredData.filter(item => item.Hasil_Ppok && parseInt(item.USIA) >= 60).length);
             }
 
             $("#tahun, #bulan, #petugas").on("change", filterData);
