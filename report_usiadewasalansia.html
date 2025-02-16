@@ -149,7 +149,8 @@
         
     
          <body class="bg-light">
-    <div id="loading-page">Memuat data...</div>
+
+           <div id="loading-page">Memuat data...</div>
     <div class="container my-4">
       <div class="card shadow">
         <div class="card-body">
@@ -208,8 +209,8 @@
             </div>
           </div>
 
-          
-          <table class="table table-bordered text-center mt-4 shadow">
+          <div class="table-responsive">
+           <table class="table table-bordered text-center mt-4 shadow">
             <thead class="table-primary">
                 <tr>
                     <th rowspan="2">NO</th>
@@ -298,21 +299,80 @@
                     <td id="diabetes-60temu">-</td>
                 </tr>
                  <tr>
-                    <td>9</td>
+                    <td>10</td>
                     <td class="text-start">SKRINING PPOK</td>
                     <td id="ppok-59">-</td>
                     <td id="ppok-59temu">-</td>
                     <td id="ppok-60">-</td>
                     <td id="ppok-60temu">-</td>
                 </tr>
+                 <tr>
+                    <td>11</td>
+                    <td class="text-start">SKRINING GINJAL</td>
+                    <td id="ginjal-59">-</td>
+                    <td id="ginjal-59temu">-</td>
+                    <td id="ginjal-60">-</td>
+                    <td id="ginjal-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>12</td>
+                    <td class="text-start">SKRINING TBC</td>
+                    <td id="tbc-59">-</td>
+                    <td id="tbc-59temu">-</td>
+                    <td id="tbc-60">-</td>
+                    <td id="tbc-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>13</td>
+                    <td class="text-start">SKRINING MALARIA</td>
+                    <td id="malaria-59">-</td>
+                    <td id="malaria-59temu">-</td>
+                    <td id="malaria-60">-</td>
+                    <td id="malaria-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>14</td>
+                    <td class="text-start">SKRINING HEPATITIS</td>
+                    <td id="hepatitis-59">-</td>
+                    <td id="hepatitis-59temu">-</td>
+                    <td id="hepatitis-60">-</td>
+                    <td id="hepatitis-60temu">-</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td class="text-start">SKRINING HIV </td>
+                    <td id="hiv-59">-</td>
+                    <td id="hiv-59temu">-</td>
+                    <td id="hiv-60">-</td>
+                    <td id="hiv-60temu">-</td>
+                </tr>
                 
             </tbody>
-        </table>
-
+           </table>
+         </div>
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <label for="tahun">PJ KLASTER 3 (USIA DEWASA DAN LANSIA)</label>
+              <select id="tahun" class="form-select select2">
+                <option value="">Pilih Tahun</option>
+              </select>
+            </div>
+           
+            <div class="col-md-4">
+              <label for="petugas">NAMA PETUGAS</label>
+              <select id="petugas" class="form-select select2">
+                <option value="">Semua Petugas</option>
+              </select>
+            </div>
+           
+            <div class="col-md-4">
+              <label class="text-white">PJ KLASTER 3 (USIA DEWASA DAN LANSIA)</label>
+              <a href=""  onclick="window.print()" class="btn btn-primary">PRINT DATA</a>
+            
+          </div>
         </div>
       </div>
     </div>
-
     
  
 
@@ -374,7 +434,7 @@
     <script src="main.js"></script>
       
     <script>
-      $(document).ready(function () {
+     $(document).ready(function () {
         $(".select2").select2({
           theme: "bootstrap4",
           width: "100%",
@@ -475,6 +535,31 @@
               $("#ppok-59temu").text(filteredData.filter(item => item.Hasil_Ppok && parseInt(item.USIA) <= 59).length);
               $("#ppok-60").text(filteredData.filter(item => item.Ppok && parseInt(item.USIA) >= 60).length);
               $("#ppok-60temu").text(filteredData.filter(item => item.Hasil_Ppok && parseInt(item.USIA) >= 60).length);
+
+              $("#ginjal-59").text(filteredData.filter(item => item.Ginjal && parseInt(item.USIA) <= 59).length);
+              $("#ginjal-59temu").text(filteredData.filter(item => item.Hasil_ginjal && parseInt(item.USIA) <= 59).length);
+              $("#ginjal-60").text(filteredData.filter(item => item.Ginjal && parseInt(item.USIA) >= 60).length);
+              $("#ginjal-60temu").text(filteredData.filter(item => item.Hasil_ginjal && parseInt(item.USIA) >= 60).length);
+
+              $("#tbc-59").text(filteredData.filter(item => item.Tbc && parseInt(item.USIA) <= 59).length);
+              $("#tbc-59temu").text(filteredData.filter(item => item.Hasil_Tbc && parseInt(item.USIA) <= 59).length);
+              $("#tbc-60").text(filteredData.filter(item => item.Tbc && parseInt(item.USIA) >= 60).length);
+              $("#tbc-60temu").text(filteredData.filter(item => item.Hasil_Tbc && parseInt(item.USIA) >= 60).length);
+
+              $("#malaria-59").text(filteredData.filter(item => item.Malaria && parseInt(item.USIA) <= 59).length);
+              $("#malaria-59temu").text(filteredData.filter(item => item.Hasil_Malaria && parseInt(item.USIA) <= 59).length);
+              $("#malaria-60").text(filteredData.filter(item => item.Malaria && parseInt(item.USIA) >= 60).length);
+              $("#malaria-60temu").text(filteredData.filter(item => item.Hasil_Malaria && parseInt(item.USIA) >= 60).length);
+
+              $("#hepatitis-59").text(filteredData.filter(item => item.Hepatitis && parseInt(item.USIA) <= 59).length);
+              $("#hepatitis-59temu").text(filteredData.filter(item => item.Hasil_Hepatitis && parseInt(item.USIA) <= 59).length);
+              $("#hepatitis-60").text(filteredData.filter(item => item.Hepatitis && parseInt(item.USIA) >= 60).length);
+              $("#hepatitis-60temu").text(filteredData.filter(item => item.Hasil_Hepatitis && parseInt(item.USIA) >= 60).length);
+
+              $("#hiv-59").text(filteredData.filter(item => item.Hiv && parseInt(item.USIA) <= 59).length);
+              $("#hiv-59temu").text(filteredData.filter(item => item.Hasil_Hiv && parseInt(item.USIA) <= 59).length);
+              $("#hiv-60").text(filteredData.filter(item => item.Hiv && parseInt(item.USIA) >= 60).length);
+              $("#hiv-60temu").text(filteredData.filter(item => item.Hasil_Hiv && parseInt(item.USIA) >= 60).length);
             }
 
             $("#tahun, #bulan, #petugas").on("change", filterData);
