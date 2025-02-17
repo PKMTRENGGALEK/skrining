@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Surat Puskesmas Trenggalek</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 1.5cm;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+      .header img {
+        width: 60px;
+      }
+      .header .text {
+        flex-grow: 1;
+      }
+      .header h2,
+      .header h3,
+      .header p {
+        margin: 2px 0;
+        font-size: 10pt;
+      }
+      .line {
+        border: 1px solid black;
+        margin: 2px 0;
+      }
+      .title {
+        text-align: center;
+        font-weight: bold;
+        font-size: 12pt;
+        margin-top: 5px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 9pt;
+      }
+      th,
+      td {
+        padding: 3px;
+        border: 1px solid black;
+        text-align: center;
+      }
+      .signature-section {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 9pt;
+      }
+      .signature {
+        text-align: center;
+        width: 48%;
+      }
+      .signature .name {
+        font-weight: bold;
+        text-decoration: underline;
+        margin-top: 30px;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <img src="Seal_of_Trenggalek_Regency.svg-min.png" alt="Logo Trenggalek" />
+      <div class="text">
+        <h2>PEMERINTAH KABUPATEN TRENGGALEK</h2>
+        <h3>DINAS KESEHATAN, PENGENDALIAN PENDUDUK DAN KELUARGA BERENCANA</h3>
+        <h3 class="puskesmas">PUSKESMAS TRENGGALEK</h3>
+        <p>
+          Jl. Soekarno Hatta Gg. Rambutan No.1 Trenggalek, Telp (0355) 792137
+        </p>
+        <p>
+          <a
+            href="https://pkm-trenggalek.trenggagalekkab.go.id"
+            target="_blank"
+          >
+            pkm-trenggalek.trenggagalekkab.go.id
+          </a>
+        </p>
+      </div>
+      <img src="health_logo.png" alt="Logo Kesehatan" />
+    </div>
+
+    <!-- Garis ganda -->
+    <hr class="line" />
+    <hr class="line thin" />
+
+    <div class="title" style="margin-top: 20px; padding-bottom: 20px" id="head">
+      REKAP SKRINING KLASTER 3 BULAN FEBRUARI TAHUN 2025
+    </div>
+
+    <div class="table-container" style="margin-bottom: 10px">
+      <table>
+        <tr>
+          <td class="bold" style="text-align: left">TEMPAT SKRINING</td>
+          <td style="text-align: left">PUSKESMAS TRENGGALEK</td>
+        </tr>
+        <tr>
+          <td class="bold" style="text-align: left">NAMA PETUGAS</td>
+          <td style="text-align: left" id="nama_petugas">:</td>
+        </tr>
+        <tr>
+          <td class="bold" style="text-align: left">
+            TOTAL SKRINING KLASTER 3
+          </td>
+          <td style="text-align: left" id="totskrin">-</td>
+        </tr>
+        <tr>
+          <td class="bold" style="text-align: left">TOTAL SKRINING 18-59 TH</td>
+          <td style="text-align: left" id="skrin59">-</td>
+        </tr>
+        <tr>
+          <td class="bold" style="text-align: left">TOTAL SKRINING 60 TH</td>
+          <td style="text-align: left" id="skrin60">-</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <tr>
+          <th rowspan="2" style="text-align: center">NO</th>
+          <th rowspan="2" style="text-align: center">INDIKATOR</th>
+          <th colspan="2" style="text-align: center">18-59 TH</th>
+          <th colspan="2" style="text-align: center">60 TH</th>
+        </tr>
+        <tr>
+          <th style="text-align: center">TOTAL SKRINING</th>
+          <th style="text-align: center">DITEMUKAN</th>
+          <th style="text-align: center">TOTAL SKRINING</th>
+          <th style="text-align: center">DITEMUKAN</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>SKRINING OBESITAS</td>
+          <td style="text-align: center" id="Skriningobesitas-59">-</td>
+          <td style="text-align: center" id="Obestemu-59">-</td>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">-</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>SKRINING HT</td>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">-</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="text-start">SKRINING STROKE</td>
+          <td class="cen" id="stroke-59">-</td>
+          <td class="cen" id="stroke-59temu">-</td>
+          <td class="cen" id="stroke-60">-</td>
+          <td class="cen" id="stroke-60temu">-</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="text-start">SKRINING JANTUNG</td>
+          <td class="cen" id="jantung-59">-</td>
+          <td class="cen" id="jantung-59temu">-</td>
+          <td class="cen" id="jantung-60">-</td>
+          <td class="cen" id="jantung-60temu">-</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="text-start">SKRINING CA SERVIX</td>
+          <td class="cen" id="cervix-59">-</td>
+          <td class="cen" id="cervix-59temu">-</td>
+          <td class="cen" id="cervix-60">-</td>
+          <td class="cen" id="cervix-60temu">-</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="text-start">SKRINING CA MAMAE</td>
+          <td class="cen" id="mamae-59">-</td>
+          <td class="cen" id="mamae-59temu">-</td>
+          <td class="cen" id="mamae-60">-</td>
+          <td class="cen" id="mamae-60temu">-</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td class="text-start">SKRINING CA KOLORECTAL</td>
+          <td class="cen" id="Kolorektal-59">-</td>
+          <td class="cen" id="Kolorektal-59temu">-</td>
+          <td class="cen" id="Kolorektal-60">-</td>
+          <td class="cen" id="Kolorektal-60temu">-</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td class="text-start">SKRINING CA PARU</td>
+          <td class="cen" id="paru-59">-</td>
+          <td class="cen" id="paru-59temu">-</td>
+          <td class="cen" id="paru-60">-</td>
+          <td class="cen" id="paru-60temu">-</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td class="text-start">SKRINING DM</td>
+          <td class="cen" id="diabetes-59">-</td>
+          <td class="cen" id="diabetes-59temu">-</td>
+          <td class="cen" id="diabetes-60">-</td>
+          <td class="cen" id="diabetes-60temu">-</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td class="text-start">SKRINING PPOK</td>
+          <td class="cen" id="ppok-59">-</td>
+          <td class="cen" id="ppok-59temu">-</td>
+          <td class="cen" id="ppok-60">-</td>
+          <td class="cen" id="ppok-60temu">-</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td class="text-start">SKRINING GINJAL</td>
+          <td class="cen" id="ginjal-59">-</td>
+          <td class="cen" id="ginjal-59temu">-</td>
+          <td class="cen" id="ginjal-60">-</td>
+          <td class="cen" id="ginjal-60temu">-</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td class="text-start">SKRINING TBC</td>
+          <td class="cen" id="tbc-59">-</td>
+          <td class="cen" id="tbc-59temu">-</td>
+          <td class="cen" id="tbc-60">-</td>
+          <td class="cen" id="tbc-60temu">-</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td class="text-start">SKRINING MALARIA</td>
+          <td class="cen" id="malaria-59">-</td>
+          <td class="cen" id="malaria-59temu">-</td>
+          <td class="cen" id="malaria-60">-</td>
+          <td class="cen" id="malaria-60temu">-</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td class="text-start">SKRINING HEPATITIS</td>
+          <td class="cen" id="hepatitis-59">-</td>
+          <td class="cen" id="hepatitis-59temu">-</td>
+          <td class="cen" id="hepatitis-60">-</td>
+          <td class="cen" id="hepatitis-60temu">-</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td class="text-start">SKRINING HIV</td>
+          <td class="cen" id="hiv-59">-</td>
+          <td class="cen" id="hiv-59temu">-</td>
+          <td class="cen" id="hiv-60">-</td>
+          <td class="cen" id="hiv-60temu">-</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="signature-section">
+      <div class="signature">
+        <p>PJ KLASTER 3 (USIA DEWASA DAN LANSIA)</p>
+        <br /><br /><br />
+        <p class="name" id="nampj">.........</p>
+        <p id="nip_pj">NIP: 19821208201406 2 003</p>
+      </div>
+      <div class="signature">
+        <p>PELAKSANA SKRINING KLASTER 3</p>
+        <br /><br /><br />
+        <p class="name" id="namkar">........</p>
+        <p id="nip_karyawan">NIP: 19780615 200701 1 023</p>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  function getMonthName(monthNumber) {
+    const months = [
+      "JANUARI",
+      "FEBRUARI",
+      "MARET",
+      "APRIL",
+      "MEI",
+      "JUNI",
+      "JULI",
+      "AGUSTUS",
+      "SEPTEMBER",
+      "OKTOBER",
+      "NOVEMBER",
+      "DESEMBER",
+    ];
+    return months[monthNumber - 1] || "-";
+  }
+  // Mengambil data dari localStorage
+  const cetakpetugas = localStorage.getItem("cetakpetugas");
+  const cetaktahun = localStorage.getItem("cetaktahun");
+  const cetakbulan = localStorage.getItem("cetakbulan");
+  const namaBulan = getMonthName(parseInt(cetakbulan, 10));
+  // const cetakbulan = localStorage.getItem("cetakbulan");
+  const nama_pj = localStorage.getItem("nama_pj");
+  const nama_karyawan = localStorage.getItem("nama_karyawan");
+  const skriningobes1 = localStorage.getItem("Skriningobesitas1");
+  const totalskrining = localStorage.getItem("totalskrining");
+  const skrin59 = localStorage.getItem("skrin59");
+  const skrin60 = localStorage.getItem("skrin60");
+  const obestemu59 = localStorage.getItem("obestemu59");
+  const nippj = localStorage.getItem("nippj");
+  const nipkaryawan = localStorage.getItem("nipkaryawan");
+
+  document.getElementById("nama_petugas").innerText =
+    cetakpetugas || "..........";
+  document.getElementById("nampj").innerText = nama_pj || "..........";
+  document.getElementById("namkar").innerText = nama_karyawan || "..........";
+
+  document.getElementById("Skriningobesitas-59").innerText =
+    skriningobes1 || "-";
+  document.getElementById("Obestemu-59").innerText = obestemu59 || "-";
+
+  document.getElementById("totskrin").innerText = totalskrining || "-";
+  document.getElementById(
+    "head"
+  ).innerText = `REKAP SKRINING KLASTER 3 BULAN ${namaBulan} TAHUN ${
+    cetaktahun || "-"
+  }`;
+  document.getElementById("nip_pj").innerText = nippj || "-";
+  document.getElementById("nip_karyawan").innerText = nipkaryawan || "-";
+
+  document.getElementById("skrin59").innerText = skrin59 || "-";
+  document.getElementById("skrin60").innerText = skrin60 || "-";
+
+  localStorage.removeItem("cetakpetugas");
+  localStorage.removeItem("cetaktahun");
+  localStorage.removeItem("cetakbulan");
+  localStorage.removeItem("nama_pj");
+  localStorage.removeItem("nama_karyawan");
+
+  window.onload = function () {
+    window.print();
+  };
+
+  // Kembali ke halaman sebelumnya setelah print selesai atau ditutup
+  window.onafterprint = function () {
+    window.history.back();
+  };
+</script>
