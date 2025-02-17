@@ -380,6 +380,48 @@
              
            </div>
           </form>
+          <script>
+          document.getElementById('print_form').addEventListener('submit', function(event) {
+              event.preventDefault();
+      
+              // Mengambil teks dari elemen <p> menggunakan innerText atau textContent
+              const cetakpetugas = document.getElementById('cetakpetugas').value;
+              const cetaktahun = document.getElementById('cetaktahun').value;
+              const cetakbulan = document.getElementById('cetakbulan').value;
+              const nama_pj = document.getElementById('nama_pj').value;
+              const nama_karyawan = document.getElementById('nama_karyawan').value;
+              const tahun = document.getElementById('tahun').value;
+              const bulan = document.getElementById('bulan').value;
+              const totalskrining = document.getElementById('total-skrining').innerText;
+              const skrin59 = document.getElementById('total-skrining-18-59').innerText;
+              const skrin60 = document.getElementById('total-skrining-60').innerText;
+              const Skriningobesitas1 = document.getElementById('Skriningobesitas-59').innerText;
+              const obestemu59 = document.getElementById('Skriningobesitas-59TEMU').innerText;
+              const nippj = document.getElementById('hasilNIP_pj').value;
+              const nipkaryawan = document.getElementById('hasilNIP_karyawan').value;
+
+      
+              // Simpan data di localStorage
+              localStorage.setItem('cetakpetugas', cetakpetugas);
+              localStorage.setItem('cetaktahun', cetaktahun);
+              localStorage.setItem('cetakbulan', cetakbulan);
+              localStorage.setItem('nama_karyawan', nama_karyawan);
+              localStorage.setItem('nama_pj', nama_pj);
+              localStorage.setItem('tahun', tahun);
+              localStorage.setItem('bulan', bulan);
+              localStorage.setItem('Skriningobesitas1', Skriningobesitas1);
+              localStorage.setItem('totalskrining', totalskrining);
+              localStorage.setItem('skrin59', skrin59);
+              localStorage.setItem('skrin60', skrin60);
+              localStorage.setItem('obestemu59', obestemu59);
+              localStorage.setItem('nippj', nippj);
+              localStorage.setItem('nipkaryawan', nipkaryawan);
+      
+              // Redirect ke halaman hasil
+              window.location.href = 'surat.html';
+          });
+      </script>
+          
         </div>
       </div>
     </div>
