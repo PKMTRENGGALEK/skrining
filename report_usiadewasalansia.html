@@ -158,7 +158,7 @@
             <h2>REKAP SKRINING KLASTER 3</h2>
             <p><strong>INDUK PUSKESMAS TRENGGALEK</strong></p>
           </div>
- <form id="print_form">
+          <form id="print_form">
           <!-- Filter Section -->
           <div class="row mb-3">
             <div class="col-md-4">
@@ -350,7 +350,9 @@
             </tbody>
            </table>
          </div>
-          <div class="row mb-3">
+      
+    
+         <div class="row mb-3">
           <div class="col-md-4">
               <label for="nama_pj">PJ KLASTER 3 (USIA DEWASA DAN LANSIA)</label>
               <select id="nama_pj" class="form-select ">
@@ -379,8 +381,8 @@
                <button type="submit" class="btn btn-primary">PRINT DATA</button>
              
            </div>
-          </form>
-          <script>
+         </form>
+         <script>
           document.getElementById('print_form').addEventListener('submit', function(event) {
               event.preventDefault();
       
@@ -421,7 +423,7 @@
               window.location.href = 'surat.html';
           });
       </script>
-          
+      
         </div>
       </div>
     </div>
@@ -485,7 +487,7 @@
     <!-- Template Javascript -->
     <script src="main.js"></script>
       
-    <script>
+     <script>
      $(document).ready(function () {
         $(".select2").select2({
           theme: "bootstrap4",
@@ -518,24 +520,30 @@
                 }
               }
             });
-
+           
             $("#tahun").append([...tahunSet].map((tahun) => `<option value="${tahun}">${tahun}</option>`));
             $("#petugas").append([...petugasSet].map((petugas) => `<option value="${petugas}">${petugas}</option>`));
 
             const bulanNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
             $("#bulan").append([...bulanSet].map((bulan) => `<option value="${bulan}">${bulanNames[bulan - 1]}</option>`));
 
+
             function filterData() {
               const selectedTahun = $("#tahun").val();
               const selectedBulan = $("#bulan").val();
               const selectedPetugas = $("#petugas").val();
-
+              
               const filteredData = data.filter((item) => {
                 return (!selectedTahun || new Date(item.TANGGAL).getFullYear() == selectedTahun) &&
                        (!selectedBulan || new Date(item.TANGGAL).getMonth() + 1 == selectedBulan) &&
                        (!selectedPetugas || item.Petugas?.includes(selectedPetugas));
-              });
 
+                      
+              });
+              
+              document.getElementById("cetaktahun").value = selectedTahun || "Tidak Dipilih";
+              document.getElementById("cetakbulan").value = selectedBulan || "Tidak Dipilih";
+              document.getElementById("cetakpetugas").value = selectedPetugas || "Tidak Dipilih";
               $("#total-skrining").text(filteredData.length);
               $("#total-skrining-18-59").text(filteredData.filter(item => !isNaN(parseInt(item.USIA)) && parseInt(item.USIA) <= 59).length);
               $("#total-skrining-60").text(filteredData.filter(item => !isNaN(parseInt(item.USIA)) && parseInt(item.USIA) >= 60 ).length);
@@ -617,8 +625,7 @@
             $("#tahun, #bulan, #petugas").on("change", filterData);
           });
       });
-    </script>
-      <script>
+    
    
       const apiUrl = "https://script.google.com/macros/s/AKfycbwUCcZNS9AaFEhzLNvF7Hb1dcoPXPguYMaUnQmvzjhnUWvgSP5CiFh67BswzdULqmZt/exec";
 
