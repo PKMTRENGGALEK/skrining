@@ -150,7 +150,7 @@
     
          <body class="bg-light">
 
-           <div id="loading-page">Memuat data...</div>
+          <div id="loading-page">Memuat data...</div>
     <div class="container my-4">
       <div class="card shadow">
         <div class="card-body">
@@ -231,8 +231,8 @@
                     <td class="text-start">SKRNING OBESITAS</td>
                     <td id="Skriningobesitas-59">-</td>
                     <td id="Skriningobesitas-59TEMU">-</td>
-                    <td id="skriningHT-60">-</td>
-                    <td id="skrinigHT-60ketemu">-</td>
+                    <td id="Skriningobesitas-60">-</td>
+                    <td id="Skriningobesitas-60ketemu">-</td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -330,7 +330,7 @@
                     <td id="malaria-60">-</td>
                     <td id="malaria-60temu">-</td>
                 </tr>
-                <tr>
+                 <tr>
                     <td>14</td>
                     <td class="text-start">	SKRINING HEPATITIS</td>
                     <td id="Hepatitis-59">-</td>
@@ -378,6 +378,7 @@
                     <td id="Catin-60">-</td>
                     <td id="Catin-60temu">-</td>
                 </tr>
+               
                 
             </tbody>
            </table>
@@ -419,7 +420,7 @@
               event.preventDefault();
       
               // Mengambil teks dari elemen <p> menggunakan innerText atau textContent
-               const cetakpetugas = document.getElementById('cetakpetugas').value;
+              const cetakpetugas = document.getElementById('cetakpetugas').value;
               const cetaktahun = document.getElementById('cetaktahun').value;
               const cetakbulan = document.getElementById('cetakbulan').value;
               const nama_pj = document.getElementById('nama_pj').value;
@@ -603,7 +604,8 @@
               localStorage.setItem('Catin59temu', Catin59temu);
               localStorage.setItem('Catin60', Catin60);
               localStorage.setItem('Catin60temu', Catin60temu);
-      
+
+
               // Redirect ke halaman hasil
               window.location.href = 'surat.html';
           });
@@ -734,8 +736,9 @@
               $("#total-skrining-60").text(filteredData.filter(item => !isNaN(parseInt(item.USIA)) && parseInt(item.USIA) >= 60 ).length);
               $("#Skriningobesitas-59").text(filteredData.filter(item => item.Dilakukan_skrining_obesitas && parseInt(item.USIA) <= 59).length);
               $("#Skriningobesitas-59TEMU").text(filteredData.filter(item => item.Hasil_obesitas && parseInt(item.USIA) <= 59).length);
-              $("#skriningHT-60").text(filteredData.filter(item => item.Dilakukan_skrining_obesitas && parseInt(item.USIA) >= 60).length);
-              $("#skrinigHT-60ketemu").text(filteredData.filter(item => item.Hasil_obesitas && parseInt(item.USIA) >= 60).length);
+              $("#Skriningobesitas-60").text(filteredData.filter(item => item.Dilakukan_skrining_obesitas && parseInt(item.USIA) >= 60).length);
+              $("#Skriningobesitas-60TEMU").text(filteredData.filter(item => item.Hasil_obesitas && parseInt(item.USIA)  >= 60).length);
+             
               $("#ht-59").text(filteredData.filter(item => item.Dilakukan_skrining_HT && parseInt(item.USIA) <= 59).length);
               $("#ht-59temu").text(filteredData.filter(item => item.Ditemukan_HT && parseInt(item.USIA) <= 59).length);
               $("#ht-60").text(filteredData.filter(item => item.Dilakukan_skrining_HT && parseInt(item.USIA) >= 60).length);
