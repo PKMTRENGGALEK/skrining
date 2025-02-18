@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -59,53 +60,31 @@
       <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
   <style>
-       #loading-page {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 9999;
-}
-
-.spinner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.spinner div {
-  width: 10px;
-  height: 10px;
-  margin: 0 5px;
-  background-color: #3498db;
-  border-radius: 50%;
-  animation: bounce 1.4s infinite ease-in-out both;
-}
-
-.dot1 {
-  animation-delay: -0.32s;
-}
-
-.dot2 {
-  animation-delay: -0.16s;
-}
-
-@keyframes bounce {
-  0%, 80%, 100% {
-    transform: scale(0);
-    opacity: 0.3;
-  }
-  40% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
+      .header img {
+        height: 80px;
+      }
+      .highlight-number {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #007bff;
+      }
+      #loading-page {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #007bff;
+        z-index: 9999;
+      }
+      .card-e:hover {
+        transform: scale(1.05);
+        transition: 0.3s ease-in-out;
+      }
   </style>  
   </head>
 
@@ -410,7 +389,7 @@
          <div class="row mb-3">
           <div class="col-md-4">
               <label for="nama_pj">PJ KLASTER 3 (USIA DEWASA DAN LANSIA)</label>
-              <select id="nama_pj" class="form-select select2">
+              <select id="nama_pj" class="form-select ">
                   <option value="">Pilih</option>
               </select>
               <!-- <p>NIP PJ: <span id="hasilNIP_pj"></span></p> -->
@@ -419,7 +398,7 @@
           
           <div class="col-md-4">
               <label for="nama_karyawan">NAMA PETUGAS</label>
-              <select id="nama_karyawan" class="form-select select2">
+              <select id="nama_karyawan" class="form-select ">
                   <option value="">Pilih</option>
               </select>
               <!-- <p>NIP KARYAWAN: <span id="hasilNIP_karyawan"></span></p> -->
@@ -857,69 +836,54 @@
       });
     
    
-     const apiUrl = "https://script.google.com/macros/s/AKfycbwUCcZNS9AaFEhzLNvF7Hb1dcoPXPguYMaUnQmvzjhnUWvgSP5CiFh67BswzdULqmZt/exec";
+      const apiUrl = "https://script.google.com/macros/s/AKfycbwUCcZNS9AaFEhzLNvF7Hb1dcoPXPguYMaUnQmvzjhnUWvgSP5CiFh67BswzdULqmZt/exec";
 
-async function fetchData() {
-    try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
+      fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+              let nama_pjSet = new Set();
+              let nama_karyawanSet = new Set();
+              let nipMap = new Map();
 
-        // Gunakan Set untuk menyimpan nama unik, dan Map untuk menyimpan NIP
-        const nama_pjSet = new Set();
-        const nama_karyawanSet = new Set();
-        const nipMap = new Map();
+              data.forEach((item) => {
+                  if (item.NAMA && item.NIP) {
+                      let nama = item.NAMA.trim();
+                      nama_pjSet.add(nama);
+                      nama_karyawanSet.add(nama);
+                      nipMap.set(nama, item.NIP.trim());
+                  }
+              });
 
-        for (const item of data) {
-            if (item.NAMA && item.NIP) {
-                const nama = item.NAMA.trim();
-                nama_pjSet.add(nama);
-                nama_karyawanSet.add(nama);
-                nipMap.set(nama, item.NIP.trim());
-            }
-        }
+              console.log("Data NIP Map:", nipMap); // Debugging untuk cek apakah data tersimpan
 
-        console.log("Data NIP Map:", nipMap); // Debugging
+              const namaPjSelect = document.getElementById("nama_pj");
+              const namaKaryawanSelect = document.getElementById("nama_karyawan");
 
-        // Perbarui elemen <select>
-        updateSelectOptions("nama_pj", nama_pjSet);
-        updateSelectOptions("nama_karyawan", nama_karyawanSet);
+              namaPjSelect.innerHTML += [...nama_pjSet]
+                  .map((nama) => `<option value="${nama}">${nama}</option>`)
+                  .join("");
 
-        // Tambahkan event listener
-        addChangeListener("nama_pj", "hasilNIP_pj", nipMap);
-        addChangeListener("nama_karyawan", "hasilNIP_karyawan", nipMap);
+              namaKaryawanSelect.innerHTML += [...nama_karyawanSet]
+                  .map((nama) => `<option value="${nama}">${nama}</option>`)
+                  .join("");
 
-    } catch (error) {
-        console.error("ERROR FETCHING DATA:", error);
-    }
-}
+              namaPjSelect.addEventListener("change", function () {
+                  const selectedNama = this.value;
+                  const nip = nipMap.get(selectedNama) || "-";
+                  console.log("PJ Dipilih:", selectedNama, "NIP:", nip); // Debugging saat memilih
+                  document.getElementById("hasilNIP_pj").value = nip;
+                  // document.getElementById("input_pj").value = selectedNama;
+              });
 
-// Fungsi untuk memperbarui elemen <select> lebih cepat dengan DocumentFragment
-function updateSelectOptions(selectId, dataSet) {
-    const selectElement = document.getElementById(selectId);
-    const fragment = document.createDocumentFragment();
-
-    for (const nama of dataSet) {
-        const option = document.createElement("option");
-        option.value = nama;
-        option.textContent = nama;
-        fragment.appendChild(option);
-    }
-
-    selectElement.appendChild(fragment);
-}
-
-// Fungsi untuk menangani perubahan dan menampilkan NIP
-function addChangeListener(selectId, outputId, dataMap) {
-    document.getElementById(selectId).addEventListener("change", function () {
-        const selectedNama = this.value;
-        const nip = dataMap.get(selectedNama) || "-";
-        console.log(`${selectId} Dipilih:`, selectedNama, "NIP:", nip);
-        document.getElementById(outputId).value = nip;
-    });
-}
-
-// Panggil fungsi fetchData saat halaman dimuat
-fetchData();
+              namaKaryawanSelect.addEventListener("change", function () {
+                  const selectedNama = this.value;
+                  const nip = nipMap.get(selectedNama) || "-";
+                  console.log("Karyawan Dipilih:", selectedNama, "NIP:", nip); // Debugging saat memilih
+                  document.getElementById("hasilNIP_karyawan").value = nip;
+                  // document.getElementById("input_karyawan").value = selectedNama;
+              });
+          })
+          .catch((error) => console.error("ERROR FETCHING DATA:", error));
   </script>
   </body>
 </html>
