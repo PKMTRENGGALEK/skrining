@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>PKM TGLK | SKRINING</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Rubik:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        #loading {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          background: rgba(255, 255, 255, 0.8);
+          padding: 20px;
+          border-radius: 10px;
+        }
+        .search-container {
+          max-width: 500px;
+          margin: 20px auto;
+        }
+        .highlight-green {
+          background-color: lightgreen;
+        }
+      </style>
+    <!-- Icon Font Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css"
+    />
+    <!-- Libraries Stylesheet -->
+    <link href="animate.min.css" rel="stylesheet" />
+    <link href="owl.carousel.min.css" rel="stylesheet" />
+    <link href="lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="bootstrap.min.css" rel="stylesheet" />
+
+    <!-- DataTables JS -->
+    <link
+      href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Template Stylesheet -->
+    <link href="style.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@1.5.2/dist/select2-bootstrap4.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- jQuery & Select2 -->
+<!--     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+</head>
+
+<body>
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div
+        class="spinner-border text-primary"
+        style="width: 3rem; height: 3rem"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid header position-relative overflow-hidden p-0">
+      <nav
+        class="navbar navbar-expand-lg fixed-top navbar-light px-4 px-lg-5 py-3 py-lg-0"
+      >
+        <a href="index.html" class="navbar-brand p-0">
+          <h1 class="display-6 text-primary m-0">
+            <i class="fas fa-hand-holding-medical"></i> Puskesmas Trenggalek
+          </h1>
+          <!-- <img src="img/logo.png" alt="Logo"> -->
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+        >
+          <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto py-0">
+            <a href="index.html" class="nav-item nav-link">Home</a>
+            <a href="screening.html" class="nav-item nav-link">Screening</a>
+            <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+          </div>
+          <!-- <a
+            href="#"
+            class="btn btn-light border border-primary rounded-pill text-primary py-2 px-4 me-4"
+            >Log In</a
+          >
+          <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4"
+            >Sign Up</a
+          > -->
+        </div>
+      </nav>
+
+      <!-- Hero Header Start -->
+      <div class="hero-header overflow-hidden px-5">
+        <div class="rotate-img">
+<!--           <img src="img/sty-1.png" class="img-fluid w-100" alt="" /> -->
+          <div class="rotate-sty-2"></div>
+        </div>
+<!--         https://docs.google.com/spreadsheets/d/1b-t0uL56KjwjFl0BbzNTp0my2yTaYqrwgosDyXDuDsM/edit?usp=sharing -->
+        
+    
+         <body class="bg-light">
+              <!-- </div> -->
+              <div id="loading">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <p>Memuat data...</p>
+              </div>
+          
+              <div class="container mt-5" style="display: none" id="content">
+                <h2 class="text-primary fw-bold text-center">Cari Pasien</h2>
+                <hr />
+                <div class="search-container">
+                  <label for="searchName" class="form-label">Pilih Nama Pasien:</label>
+                  <select id="searchName" class="form-select select2" style="width: 100%">
+                    <option value="">-- Pilih Nama --</option>
+                  </select>
+                </div>
+          
+                <div id="patientDetails" class="mt-4" style="display: none">
+                  <table class="table table-striped">
+                    <thead class="table-success">
+                      <tr>
+                        <th>NIK</th>
+                        <th>Nama</th>
+                        <th>Tanggal Skrining</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Usia</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Alamat</th>
+                        <th>Tempat Pelayanan</th>
+                        <th>Jenis Skrining</th>
+                        <th>Nama Petugas</th>
+                        <th>Wilayah</th>
+                        <th>Option</th>
+                      </tr>
+                    </thead>
+                    <tbody id="patientTableBody"></tbody>
+                  </table>
+                </div>
+          
+                <div id="detailedPatientInfo" class="mt-4" style="display: none">
+                  <h4 class="text-center">Detail Skrining</h4>
+                  <hr />
+                  <table class="table table-bordered">
+                    <tbody id="detailedPatientTableBody"></tbody>
+                  </table>
+                </div>
+              </div>
+          
+              
+
+
+
+
+
+      </div>
+
+      <!-- Hero Header End -->
+    </div>
+    <!-- Navbar & Hero End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-2 fixed-bottom">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-md-0">
+            <span class="text-white"
+              ><a href="#"
+                ><i class="fas fa-copyright text-light me-2"></i>Skrining
+                Puskesmas Trenggalek</a
+              >
+              , All right reserved.</span
+            >
+          </div>
+          <div class="col-md-6 text-center text-md-end text-white">
+            Designed By
+            <a class="border-bottom" href="https://htmlcodex.com"
+              >@Yoga | 2024</a
+            >
+            <!-- Distributed By
+            <a class="border-bottom" href="https://themewagon.com"
+              >ThemeWagon</a
+            > -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <!-- <a href="#" class="btn btn-primary btn-lg-square back-to-top"
+      ><i class="fa fa-arrow-up"></i
+    ></a> -->
+
+  
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="wow.min.js"></script>
+    <script src="easing.min.js"></script>
+    <script src="waypoints.min.js"></script>
+    <script src="counterup.min.js"></script>
+    <script src="owl.carousel.min.js"></script>
+    <script src="lightbox.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          const apiUrl =
+            "https://script.google.com/macros/s/AKfycbzt7PAW2PijPUQQwWvzqZso5oCkuh5H9VduEYgq3H5dWI-07B32TcGW04-HWMgt4Kxt/exec?action=get-data";
+          let patients = [];
+  
+          function formatDate(dateString) {
+            if (!dateString) return "N/A";
+            let date = new Date(dateString);
+            if (isNaN(date.getTime())) return "N/A";
+            return `${String(date.getDate()).padStart(
+              2,
+              "0"
+            )}/${String(date.getMonth() + 1).padStart(2, "0")}/${date.getFullYear()}`;
+          }
+  
+          fetch(apiUrl)
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                patients = data.data;
+                let uniqueNames = [...new Set(patients.map((p) => p.Nama))];
+                uniqueNames.forEach((name) => {
+                  $("#searchName").append(new Option(name, name));
+                });
+                $(".select2").select2({
+                  placeholder: "Cari nama pasien...",
+                  allowClear: true,
+                });
+                $("#loading").hide();
+                $("#content").show();
+              }
+            });
+  
+          $("#searchName").change(function () {
+            let selectedName = $(this).val();
+            let selectedPatients = patients.filter(
+              (p) => p.Nama === selectedName
+            );
+            let tableBody = $("#patientTableBody");
+            tableBody.empty();
+  
+            // Sembunyikan detail pasien jika memilih nama baru
+            $("#detailedPatientInfo").hide();
+  
+            if (selectedPatients.length > 0) {
+              selectedPatients.forEach((patient) => {
+                tableBody.append(`
+                              <tr>
+                                  <td>${patient.Nik}</td>
+                                  <td>${patient.Nama}</td>
+                                  <td>${formatDate(patient.Tanggal_input)}</td>
+                                  <td>${formatDate(patient.Tgl_lahir)}</td>
+                                  <td>${patient.Usia} tahun</td>
+                                  <td>${patient.Jenis}</td>
+                                  <td>${patient.Alamat}</td>
+                                  <td>${patient.Poli}</td>
+                                  <td>${patient.Jenis_skrining}</td>
+                                  <td>${patient.Nama_petugas}</td>
+                                  <td>${patient.Wilayah}</td>
+                                  <td><button class="btn btn-primary view-data" data-name="${
+                                    patient.Nama
+                                  }">View</button></td>
+                              </tr>
+                          `);
+              });
+              $("#patientDetails").show();
+            }
+          });
+  
+          $(document).on("click", ".view-data", function () {
+            let name = $(this).data("name");
+            let patient = patients.find((p) => p.Nama === name);
+            let tableBody = $("#detailedPatientTableBody");
+            tableBody.empty();
+  
+            if (patient) {
+              let obesityDetection = patient.Deteksi_Obesitas ? "Y" : "";
+              let obesityClass = patient.Deteksi_Obesitas ? "text-success" : "";
+              let HTDetection = patient.Deteksi_HT ? "Y" : "";
+              let HTClass = patient.Deteksi_HT ? "text-success" : "";
+  
+              tableBody.append(`
+                          <tr><td><strong>Nama</strong></td><td>${
+                            patient.Nama
+                          }</td></tr>
+                          <tr><td><strong>Tanggal Skrining</strong></td><td>${formatDate(
+                            patient.Tanggal_input
+                          )}</td></tr>
+                          <tr><td><strong>Deteksi Obesitas</strong></td><td class="${obesityClass}">${obesityDetection}</td></tr>
+                          <tr><td><strong>Deteksi HT</strong></td><td class="${HTClass}">${HTDetection}</td></tr>
+                      `);
+            }
+  
+            // Menampilkan detail pasien hanya setelah klik tombol View
+            $("#detailedPatientInfo").show();
+          });
+        });
+      </script>
+</body>
+</html>
