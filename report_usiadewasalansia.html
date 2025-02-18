@@ -330,21 +330,53 @@
                     <td id="malaria-60">-</td>
                     <td id="malaria-60temu">-</td>
                 </tr>
-                 <tr>
-                    <td>14</td>
-                    <td class="text-start">SKRINING HEPATITIS</td>
-                    <td id="hepatitis-59">-</td>
-                    <td id="hepatitis-59temu">-</td>
-                    <td id="hepatitis-60">-</td>
-                    <td id="hepatitis-60temu">-</td>
-                </tr>
                 <tr>
+                    <td>14</td>
+                    <td class="text-start">	SKRINING HEPATITIS</td>
+                    <td id="Hepatitis-59">-</td>
+                    <td id="Hepatitis-59temu">-</td>
+                    <td id="Hepatitis-60">-</td>
+                    <td id="Hepatitis-60temu">-</td>
+                </tr>
+                 <tr>
                     <td>15</td>
-                    <td class="text-start">SKRINING HIV </td>
-                    <td id="hiv-59">-</td>
-                    <td id="hiv-59temu">-</td>
-                    <td id="hiv-60">-</td>
-                    <td id="hiv-60temu">-</td>
+                    <td class="text-start">	SKRINING HIV</td>
+                    <td id="Hiv-59">-</td>
+                    <td id="Hiv-59temu">-</td>
+                    <td id="Hiv-60">-</td>
+                    <td id="Hiv-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>16</td>
+                    <td class="text-start">	SKRINING JIWA</td>
+                    <td id="Jiwa-59">-</td>
+                    <td id="Jiwa-59temu">-</td>
+                    <td id="Jiwa-60">-</td>
+                    <td id="Jiwa-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>17</td>
+                    <td class="text-start">	SKRINING INDERA</td>
+                    <td id="Indera-59">-</td>
+                    <td id="Indera-59temu">-</td>
+                    <td id="Indera-60">-</td>
+                    <td id="Indera-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>18</td>
+                    <td class="text-start">	SKRINING SKILAS, ADL</td>
+                    <td id="Adl-59">-</td>
+                    <td id="Adl-59temu">-</td>
+                    <td id="Adl-60">-</td>
+                    <td id="Adl-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>19</td>
+                    <td class="text-start">	SKRINING CATIN</td>
+                    <td id="Catin-59">-</td>
+                    <td id="Catin-59temu">-</td>
+                    <td id="Catin-60">-</td>
+                    <td id="Catin-60temu">-</td>
                 </tr>
                 
             </tbody>
@@ -387,7 +419,7 @@
               event.preventDefault();
       
               // Mengambil teks dari elemen <p> menggunakan innerText atau textContent
-              const cetakpetugas = document.getElementById('cetakpetugas').value;
+               const cetakpetugas = document.getElementById('cetakpetugas').value;
               const cetaktahun = document.getElementById('cetaktahun').value;
               const cetakbulan = document.getElementById('cetakbulan').value;
               const nama_pj = document.getElementById('nama_pj').value;
@@ -397,10 +429,85 @@
               const totalskrining = document.getElementById('total-skrining').innerText;
               const skrin59 = document.getElementById('total-skrining-18-59').innerText;
               const skrin60 = document.getElementById('total-skrining-60').innerText;
-              const Skriningobesitas1 = document.getElementById('Skriningobesitas-59').innerText;
-              const obestemu59 = document.getElementById('Skriningobesitas-59TEMU').innerText;
               const nippj = document.getElementById('hasilNIP_pj').value;
               const nipkaryawan = document.getElementById('hasilNIP_karyawan').value;
+              const Skriningobesitas1 = document.getElementById('Skriningobesitas-59').innerText;
+              const obestemu59 = document.getElementById('Skriningobesitas-59TEMU').innerText;
+              const obes60 = document.getElementById('Skriningobesitas-60').innerText;
+              const obestemu60 = document.getElementById('Skriningobesitas-60ketemu').innerText;
+              const ht_59 = document.getElementById('ht-59').innerText;
+              const ht59_temu = document.getElementById('ht-59temu').innerText;
+              const ht60 = document.getElementById('ht-60').innerText;
+              const ht60temu = document.getElementById('ht-60temu').innerText;
+              const stroke59 = document.getElementById('stroke-59').innerText;
+              const stroke59temu = document.getElementById('stroke-59temu').innerText;
+              const stroke60 = document.getElementById('stroke-60').innerText;
+              const stroke60temu = document.getElementById('stroke-60temu').innerText;
+              const jantung59 = document.getElementById('jantung-59').innerText;
+              const jantung59temu = document.getElementById('jantung-59temu').innerText;
+              const jantung60 = document.getElementById('jantung-60').innerText;
+              const jantung60temu = document.getElementById('jantung-60temu').innerText;
+              const cervix59 = document.getElementById('cervix-59').innerText;
+              const cervix59temu = document.getElementById('cervix-59temu').innerText;
+              const cervix60 = document.getElementById('cervix-60').innerText;
+              const cervix60temu = document.getElementById('cervix-60temu').innerText;
+              const mamae59 = document.getElementById('mamae-59').innerText;
+              const mamae59temu = document.getElementById('mamae-59temu').innerText;
+              const mamae60 = document.getElementById('mamae-60').innerText;
+              const mamae60temu = document.getElementById('mamae-60temu').innerText;
+              const Kolorektal59 = document.getElementById('Kolorektal-59').innerText;
+              const Kolorektal59temu = document.getElementById('Kolorektal-59temu').innerText;
+              const Kolorektal60 = document.getElementById('Kolorektal-60').innerText;
+              const Kolorektal60temu = document.getElementById('Kolorektal-60temu').innerText;
+              const paru59 = document.getElementById('paru-59').innerText;
+              const paru59temu = document.getElementById('paru-59temu').innerText;
+              const paru60 = document.getElementById('paru-60').innerText;
+              const paru60temu = document.getElementById('paru-60temu').innerText;
+              const diabetes59 = document.getElementById('diabetes-59').innerText;
+              const diabetes59temu = document.getElementById('diabetes-59temu').innerText;
+              const diabetes60 = document.getElementById('diabetes-60').innerText;
+              const diabetes60temu = document.getElementById('diabetes-60temu').innerText;
+              const ppok59 = document.getElementById('ppok-59').innerText;
+              const ppok59temu = document.getElementById('ppok-59temu').innerText;
+              const ppok60 = document.getElementById('ppok-60').innerText;
+              const ppok60temu = document.getElementById('ppok-60temu').innerText;
+              const ginjal59 = document.getElementById('ginjal-59').innerText;
+              const ginjal59temu = document.getElementById('ginjal-59temu').innerText;
+              const ginjal60 = document.getElementById('ginjal-60').innerText;
+              const ginjal60temu = document.getElementById('ginjal-60temu').innerText;
+              const tbc59 = document.getElementById('tbc-59').innerText;
+              const tbc59temu = document.getElementById('tbc-59temu').innerText;
+              const tbc60 = document.getElementById('tbc-60').innerText;
+              const tbc60temu = document.getElementById('tbc-60temu').innerText;
+              const malaria59 = document.getElementById('malaria-59').innerText;
+              const malaria59temu = document.getElementById('malaria-59temu').innerText;
+              const malaria60 = document.getElementById('malaria-60').innerText;
+              const malaria60temu = document.getElementById('malaria-60temu').innerText;
+              const Hepatitis59 = document.getElementById('Hepatitis-59').innerText;
+              const Hepatitis59temu = document.getElementById('Hepatitis-59temu').innerText;
+              const Hepatitis60 = document.getElementById('Hepatitis-60').innerText;
+              const Hepatitis60temu = document.getElementById('Hepatitis-60temu').innerText;
+              const hiv59 = document.getElementById('Hiv-59').innerText;
+              const hiv59temu = document.getElementById('Hiv-59temu').innerText;
+              const hiv60 = document.getElementById('Hiv-60').innerText;
+              const hiv60temu = document.getElementById('Hiv-60temu').innerText;
+              const Jiwa59 = document.getElementById('Jiwa-59').innerText;
+              const Jiwa59temu = document.getElementById('Jiwa-59temu').innerText;
+              const Jiwa60 = document.getElementById('Jiwa-60').innerText;
+              const Jiwa60temu = document.getElementById('Jiwa-60temu').innerText;
+              const Indera59 = document.getElementById('Indera-59').innerText;
+              const Indera59temu = document.getElementById('Indera-59temu').innerText;
+              const Indera60 = document.getElementById('Indera-60').innerText;
+              const Indera60temu = document.getElementById('Indera-60temu').innerText;
+              const Adl59 = document.getElementById('Adl-59').innerText;
+              const Adl59temu = document.getElementById('Adl-59temu').innerText;
+              const Adl60 = document.getElementById('Adl-60').innerText;
+              const Adl60temu = document.getElementById('Adl-60temu').innerText;
+              const Catin59 = document.getElementById('Catin-59').innerText;
+              const Catin59temu = document.getElementById('Catin-59temu').innerText;
+              const Catin60 = document.getElementById('Catin-60').innerText;
+              const Catin60temu = document.getElementById('Catin-60temu').innerText;
+              
 
       
               // Simpan data di localStorage
@@ -418,6 +525,84 @@
               localStorage.setItem('obestemu59', obestemu59);
               localStorage.setItem('nippj', nippj);
               localStorage.setItem('nipkaryawan', nipkaryawan);
+              localStorage.setItem('obes60', obes60);
+              localStorage.setItem('obestemu60', obestemu60);
+              localStorage.setItem('ht_59', ht_59);
+              localStorage.setItem('ht59_temu', ht59_temu);
+              localStorage.setItem('ht60', ht60);
+              localStorage.setItem('ht60temu', ht60temu);
+              localStorage.setItem('stroke59', stroke59);
+              localStorage.setItem('stroke59temu', stroke59temu);
+              localStorage.setItem('stroke60', stroke60);
+              localStorage.setItem('stroke60temu', stroke60temu);
+              localStorage.setItem('jantung59', jantung59);
+              localStorage.setItem('jantung59temu', stroke60temu);
+              localStorage.setItem('jantung60', jantung60);
+              localStorage.setItem('jantung60temu', jantung60temu);
+              localStorage.setItem('cervix59', cervix59);
+              localStorage.setItem('cervix59temu', cervix59temu);
+              localStorage.setItem('cervix60', cervix60);
+              localStorage.setItem('cervix60temu', cervix60temu);
+              localStorage.setItem('mamae59', mamae59);
+              localStorage.setItem('mamae59temu', mamae59temu);
+              localStorage.setItem('mamae60', mamae60);
+              localStorage.setItem('mamae60temu', mamae60temu);
+              localStorage.setItem('Kolorektal59', Kolorektal59);
+              localStorage.setItem('Kolorektal59temu', Kolorektal59temu);
+              localStorage.setItem('Kolorektal60', Kolorektal60);
+              localStorage.setItem('Kolorektal60temu', Kolorektal60temu);
+              localStorage.setItem('paru59', paru59);
+              localStorage.setItem('paru59temu', paru59temu);
+              localStorage.setItem('paru60', paru60);
+              localStorage.setItem('paru60temu', paru60temu);
+              localStorage.setItem('diabetes59', diabetes59);
+              localStorage.setItem('diabetes59temu', diabetes59temu);
+              localStorage.setItem('diabetes60', diabetes60);
+              localStorage.setItem('diabetes60temu', diabetes60temu);
+              localStorage.setItem('ppok59', ppok59);
+              localStorage.setItem('ppok59temu', ppok59temu);
+              localStorage.setItem('ppok60', ppok60);
+              localStorage.setItem('ppok60temu', ppok60temu);
+              localStorage.setItem('ginjal59', ginjal59);
+              localStorage.setItem('ginjal59temu', ginjal59temu);
+              localStorage.setItem('ginjal60', ginjal60);
+              localStorage.setItem('ginjal60temu', ginjal60temu);
+              localStorage.setItem('tbc59', tbc59);
+              localStorage.setItem('tbc59temu', tbc59temu);
+              localStorage.setItem('tbc60', tbc60);
+              localStorage.setItem('tbc60temu', tbc60temu);
+              localStorage.setItem('tbc59', tbc59);
+              localStorage.setItem('tbc59temu', tbc59temu);
+              localStorage.setItem('tbc60', tbc60);
+              localStorage.setItem('tbc60temu', tbc60temu);
+              localStorage.setItem('malaria59', malaria59);
+              localStorage.setItem('malaria59temu', malaria59temu);
+              localStorage.setItem('malaria60', malaria60);
+              localStorage.setItem('malaria60temu', malaria60temu);
+              localStorage.setItem('Hepatitis59', Hepatitis59);
+              localStorage.setItem('Hepatitis59temu', Hepatitis59temu);
+              localStorage.setItem('Hepatitis60', Hepatitis60);
+              localStorage.setItem('Hepatitis60temu', Hepatitis60temu);
+              localStorage.setItem('hiv59', hiv59);
+              localStorage.setItem('hiv59temu', hiv59temu);
+              localStorage.setItem('hiv60', hiv60);
+              localStorage.setItem('hiv60temu', hiv60temu);
+              localStorage.setItem('Jiwa59', Jiwa59);
+              localStorage.setItem('Jiwa59temu', Jiwa59temu);
+              localStorage.setItem('Jiwa60', Jiwa60);
+              localStorage.setItem('Jiwa60temu', Jiwa60temu);
+              localStorage.setItem('Indera59', Indera59);
+              localStorage.setItem('Indera59temu', Indera59temu);
+              localStorage.setItem('Indera60', Indera60);
+              localStorage.setItem('Indera60temu', Indera60temu);
+              localStorage.setItem('Adl59', Adl59);
+              localStorage.setItem('Adl59temu', Adl59temu);
+              localStorage.setItem('Adl60', Adl60);
+              localStorage.setItem('Adl60temu', Adl60temu);
+              localStorage.setItem('Catin59', Catin59);
+              localStorage.setItem('Catin59temu', Catin59temu);
+              localStorage.setItem('Catin60', Catin60);
+              localStorage.setItem('Catin60temu', Catin60temu);
       
               // Redirect ke halaman hasil
               window.location.href = 'surat.html';
@@ -611,15 +796,35 @@
               $("#malaria-60").text(filteredData.filter(item => item.Malaria && parseInt(item.USIA) >= 60).length);
               $("#malaria-60temu").text(filteredData.filter(item => item.Hasil_Malaria && parseInt(item.USIA) >= 60).length);
 
-              $("#hepatitis-59").text(filteredData.filter(item => item.Hepatitis && parseInt(item.USIA) <= 59).length);
-              $("#hepatitis-59temu").text(filteredData.filter(item => item.Hasil_Hepatitis && parseInt(item.USIA) <= 59).length);
-              $("#hepatitis-60").text(filteredData.filter(item => item.Hepatitis && parseInt(item.USIA) >= 60).length);
-              $("#hepatitis-60temu").text(filteredData.filter(item => item.Hasil_Hepatitis && parseInt(item.USIA) >= 60).length);
+              $("#Hepatitis-59").text(filteredData.filter(item => item.Hepatitis && parseInt(item.USIA) <= 59).length);
+              $("#Hepatitis-59temu").text(filteredData.filter(item => item.Hasil_Hepatitis && parseInt(item.USIA) <= 59).length);
+              $("#Hepatitis-60").text(filteredData.filter(item => item.Hepatitis && parseInt(item.USIA) >= 60).length);
+              $("#Hepatitis-60temu").text(filteredData.filter(item => item.Hasil_Hepatitis && parseInt(item.USIA) >= 60).length);
 
-              $("#hiv-59").text(filteredData.filter(item => item.Hiv && parseInt(item.USIA) <= 59).length);
-              $("#hiv-59temu").text(filteredData.filter(item => item.Hasil_Hiv && parseInt(item.USIA) <= 59).length);
-              $("#hiv-60").text(filteredData.filter(item => item.Hiv && parseInt(item.USIA) >= 60).length);
-              $("#hiv-60temu").text(filteredData.filter(item => item.Hasil_Hiv && parseInt(item.USIA) >= 60).length);
+              $("#Hiv-59").text(filteredData.filter(item => item.Hiv == "YA" && parseInt(item.USIA) <= 59).length);
+              $("#Hiv-59temu").text(filteredData.filter(item => item.Hasil_Hiv && parseInt(item.USIA) <= 59).length);
+              $("#Hiv-60").text(filteredData.filter(item => item.Hiv =="YA" && parseInt(item.USIA) >= 60).length);
+              $("#Hiv-60temu").text(filteredData.filter(item => item.Hasil_Hiv && parseInt(item.USIA) >= 60).length);
+
+              $("#Jiwa-59").text(filteredData.filter(item => item.Jiwa == "YA" && parseInt(item.USIA) <= 59).length);
+              $("#Jiwa-59temu").text(filteredData.filter(item => item.Hasil_Jiwa && parseInt(item.USIA) <= 59).length);
+              $("#Jiwa-60").text(filteredData.filter(item => item.Jiwa =="YA" && parseInt(item.USIA) >= 60).length);
+              $("#Jiwa-60temu").text(filteredData.filter(item => item.Hasil_Jiwa && parseInt(item.USIA) >= 60).length);
+
+              $("#Indera-59").text(filteredData.filter(item => item.Indera == "YA" && parseInt(item.USIA) <= 59).length);
+              $("#Indera-59temu").text(filteredData.filter(item => item.Hasil_Indera == "YA" && parseInt(item.USIA) <= 59).length);
+              $("#Indera-60").text(filteredData.filter(item => item.Indera =="YA" && parseInt(item.USIA) >= 60).length);
+              $("#Indera-60temu").text(filteredData.filter(item => item.Hasil_Indera == "YA" && parseInt(item.USIA) >= 60).length);
+
+              $("#Adl-59").text(filteredData.filter(item => item.Adl == "YA" && parseInt(item.USIA) <= 59).length);
+              $("#Adl-59temu").text(filteredData.filter(item => item.Hasil_Adl == "C" && parseInt(item.USIA) <= 59).length);
+              $("#Adl-60").text(filteredData.filter(item => item.Adl =="YA" && parseInt(item.USIA) >= 60).length);
+              $("#Adl-60temu").text(filteredData.filter(item => item.Hasil_Adl == "C" && parseInt(item.USIA) >= 60).length);
+
+              $("#Catin-59").text(filteredData.filter(item => item.Catin == "YA" && parseInt(item.USIA) <= 59).length);
+              $("#Catin-59temu").text(filteredData.filter(item => item.Hasil_Catin == "C" && parseInt(item.USIA) <= 59).length);
+              $("#Catin-60").text(filteredData.filter(item => item.Catin =="YA" && parseInt(item.USIA) >= 60).length);
+              $("#Catin-60temu").text(filteredData.filter(item => item.Hasil_Catin == "C" && parseInt(item.USIA) >= 60).length);
             }
 
             $("#tahun, #bulan, #petugas").on("change", filterData);
