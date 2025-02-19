@@ -883,65 +883,65 @@
    
      const apiUrl = "https://script.google.com/macros/s/AKfycbwUCcZNS9AaFEhzLNvF7Hb1dcoPXPguYMaUnQmvzjhnUWvgSP5CiFh67BswzdULqmZt/exec";
 
-async function fetchData() {
-    try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-
-        const nama_pjSet = new Set();
-        const nama_karyawanSet = new Set();
-        const nipMap = new Map();
-
-        data.forEach(({ NAMA, NIP }) => {
-            if (NAMA && NIP) {
-                const namaTrim = NAMA.trim();
-                nama_pjSet.add(namaTrim);
-                nama_karyawanSet.add(namaTrim);
-                nipMap.set(namaTrim, NIP.trim());
-            }
-        });
-
-        console.log("Data NIP Map:", nipMap); // Debugging
-
-        const namaPjSelect = document.getElementById("nama_pj");
-        const namaKaryawanSelect = document.getElementById("nama_karyawan");
-
-        // Gunakan DocumentFragment untuk mempercepat manipulasi DOM
-        const fragmentPj = document.createDocumentFragment();
-        const fragmentKaryawan = document.createDocumentFragment();
-
-        nama_pjSet.forEach((nama) => {
-            const option = document.createElement("option");
-            option.value = nama;
-            option.textContent = nama;
-            fragmentPj.appendChild(option);
-        });
-
-        nama_karyawanSet.forEach((nama) => {
-            const option = document.createElement("option");
-            option.value = nama;
-            option.textContent = nama;
-            fragmentKaryawan.appendChild(option);
-        });
-
-        namaPjSelect.appendChild(fragmentPj);
-        namaKaryawanSelect.appendChild(fragmentKaryawan);
-
-        function handleSelection(event, outputId) {
-            const selectedNama = event.target.value;
-            document.getElementById(outputId).value = nipMap.get(selectedNama) || "-";
-            console.log("Dipilih:", selectedNama, "NIP:", nipMap.get(selectedNama) || "-"); // Debugging
-        }
-
-        namaPjSelect.addEventListener("change", (e) => handleSelection(e, "hasilNIP_pj"));
-        namaKaryawanSelect.addEventListener("change", (e) => handleSelection(e, "hasilNIP_karyawan"));
-    } catch (error) {
-        console.error("ERROR FETCHING DATA:", error);
-    }
-}
-
-// Panggil fungsi untuk mengambil data
-fetchData();
+      async function fetchData() {
+          try {
+              const response = await fetch(apiUrl);
+              const data = await response.json();
+      
+              const nama_pjSet = new Set();
+              const nama_karyawanSet = new Set();
+              const nipMap = new Map();
+      
+              data.forEach(({ NAMA, NIP }) => {
+                  if (NAMA && NIP) {
+                      const namaTrim = NAMA.trim();
+                      nama_pjSet.add(namaTrim);
+                      nama_karyawanSet.add(namaTrim);
+                      nipMap.set(namaTrim, NIP.trim());
+                  }
+              });
+      
+              console.log("Data NIP Map:", nipMap); // Debugging
+      
+              const namaPjSelect = document.getElementById("nama_pj");
+              const namaKaryawanSelect = document.getElementById("nama_karyawan");
+      
+              // Gunakan DocumentFragment untuk mempercepat manipulasi DOM
+              const fragmentPj = document.createDocumentFragment();
+              const fragmentKaryawan = document.createDocumentFragment();
+      
+              nama_pjSet.forEach((nama) => {
+                  const option = document.createElement("option");
+                  option.value = nama;
+                  option.textContent = nama;
+                  fragmentPj.appendChild(option);
+              });
+      
+              nama_karyawanSet.forEach((nama) => {
+                  const option = document.createElement("option");
+                  option.value = nama;
+                  option.textContent = nama;
+                  fragmentKaryawan.appendChild(option);
+              });
+      
+              namaPjSelect.appendChild(fragmentPj);
+              namaKaryawanSelect.appendChild(fragmentKaryawan);
+      
+              function handleSelection(event, outputId) {
+                  const selectedNama = event.target.value;
+                  document.getElementById(outputId).value = nipMap.get(selectedNama) || "-";
+                  console.log("Dipilih:", selectedNama, "NIP:", nipMap.get(selectedNama) || "-"); // Debugging
+              }
+      
+              namaPjSelect.addEventListener("change", (e) => handleSelection(e, "hasilNIP_pj"));
+              namaKaryawanSelect.addEventListener("change", (e) => handleSelection(e, "hasilNIP_karyawan"));
+          } catch (error) {
+              console.error("ERROR FETCHING DATA:", error);
+          }
+      }
+      
+      // Panggil fungsi untuk mengambil data
+      fetchData();
   </script>
   </body>
 </html>
