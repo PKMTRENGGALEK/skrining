@@ -1,0 +1,947 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>PKM TGLK | SKRINING</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Rubik:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css"
+    />
+    <!-- Libraries Stylesheet -->
+    <link href="animate.min.css" rel="stylesheet" />
+    <link href="owl.carousel.min.css" rel="stylesheet" />
+    <link href="lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="bootstrap.min.css" rel="stylesheet" />
+
+    <!-- DataTables JS -->
+    <link
+      href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Template Stylesheet -->
+    <link href="style.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@1.5.2/dist/select2-bootstrap4.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- jQuery & Select2 -->
+<!--     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+  <style>
+      .header img {
+        height: 80px;
+      }
+      .highlight-number {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #007bff;
+      }
+     #loading-page {
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f74780;
+    display: flex;
+    align-items: center;
+}
+
+.loading-dots span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-left: 5px;
+    background-color: #f74780;
+    border-radius: 50%;
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+.loading-dots span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loading-dots span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.loading-dots span:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+      .card-e:hover {
+        transform: scale(1.05);
+        transition: 0.3s ease-in-out;
+      }
+  </style>  
+  </head>
+
+  <body>
+    <!-- Spinner Start -->
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div
+        class="spinner-border text-primary"
+        style="width: 3rem; height: 3rem"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid header position-relative overflow-hidden p-0">
+      <nav
+        class="navbar navbar-expand-lg fixed-top navbar-light px-4 px-lg-5 py-3 py-lg-0"
+      >
+        <a href="index.html" class="navbar-brand p-0">
+          <h1 class="display-6 text-primary m-0">
+            <i class="fas fa-hand-holding-medical"></i> Puskesmas Trenggalek
+          </h1>
+          <!-- <img src="img/logo.png" alt="Logo"> -->
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+        >
+          <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto py-0">
+            <a href="index.html" class="nav-item nav-link">Home</a>
+            <a href="screening.html" class="nav-item nav-link">Screening</a>
+            <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+          </div>
+          <!-- <a
+            href="#"
+            class="btn btn-light border border-primary rounded-pill text-primary py-2 px-4 me-4"
+            >Log In</a
+          >
+          <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4"
+            >Sign Up</a
+          > -->
+        </div>
+      </nav>
+
+      <!-- Hero Header Start -->
+      <div class="hero-header overflow-hidden px-5">
+        <div class="rotate-img">
+<!--           <img src="img/sty-1.png" class="img-fluid w-100" alt="" /> -->
+          <div class="rotate-sty-2"></div>
+        </div>
+<!--         https://docs.google.com/spreadsheets/d/1b-t0uL56KjwjFl0BbzNTp0my2yTaYqrwgosDyXDuDsM/edit?usp=sharing -->
+        
+    
+         <body class="bg-light">
+
+         
+    <div class="container my-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <div class="header text-center mb-3">
+            <h2>REKAP SKRINING KLASTER 3</h2>
+            <p><strong>DESA SAMBIREJO</strong></p>
+          </div>
+          <form id="print_form">
+          <!-- Filter Section -->
+             <div id="loading-page">
+            <div class="loading-text ">
+                Memuat Data
+                <div class="loading-dots ">
+                    <span class="text-primary"></span>
+                    <span class="text-primary"></span>
+                    <span class="text-primary"></span>
+                </div>
+            </div>
+        </div>
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <label for="tahun">Tahun:</label>
+              <select id="tahun" class="form-select select2">
+                <option value="">Pilih Tahun</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label for="bulan">Bulan:</label>
+              <select id="bulan" class="form-select select2">
+                <option value="">Semua Bulan</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label for="petugas">Petugas:</label>
+              <select id="petugas" class="form-select select2">
+                <option value="">Semua Petugas</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Cards Section -->
+          <div class="row text-center">
+            <div class="col-md-4">
+              <div class="card card-e mt-3 shadow">
+                <div class="card-body">
+                  <h5 class="card-title">Total Skrining</h5>
+                  <p class="highlight-number" id="total-skrining">0</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-e mt-3 shadow">
+                <div class="card-body">
+                  <h5 class="card-title">Total Skrining 18-59 TH</h5>
+                  <p class="highlight-number" id="total-skrining-18-59">0</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-e mt-3 shadow">
+                <div class="card-body">
+                  <h5 class="card-title">Total Skrining 60 TH</h5>
+                  <p class="highlight-number" id="total-skrining-60">0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+           <table class="table table-bordered text-center mt-4 shadow">
+            <thead class="table-primary">
+                <tr>
+                    <th rowspan="2">NO</th>
+                    <th rowspan="2">INDIKATOR</th>
+                    <th colspan="2">18-59 TH</th>
+                    <th colspan="2">60 TH</th>
+                </tr>
+                <tr>
+                    <th>Total Skrining</th>
+                    <th>Ditemukan</th>
+                    <th>Total Skrining</th>
+                    <th>Ditemukan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td class="text-start">SKRNING OBESITAS</td>
+                    <td id="Skriningobesitas-59">-</td>
+                    <td id="Skriningobesitas-59TEMU">-</td>
+                    <td id="Skriningobesitas-60">-</td>
+                    <td id="Skriningobesitas-60ketemu">-</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="text-start">SKRINING HT</td>
+                    <td id="ht-59">-</td>
+                    <td id="ht-59temu">-</td>
+                    <td id="ht-60">-</td>
+                    <td id="ht-60temu">-</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="text-start">SKRINING STROKE</td>
+                    <td id="stroke-59">-</td>
+                    <td id="stroke-59temu">-</td>
+                    <td id="stroke-60">-</td>
+                    <td id="stroke-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>4</td>
+                    <td class="text-start">SKRINING JANTUNG</td>
+                    <td id="jantung-59">-</td>
+                    <td id="jantung-59temu">-</td>
+                    <td id="jantung-60">-</td>
+                    <td id="jantung-60temu">-</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="text-start">SKRINING CA SERVIX</td>
+                    <td id="cervix-59">-</td>
+                    <td id="cervix-59temu">-</td>
+                    <td id="cervix-60">-</td>
+                    <td id="cervix-60temu">-</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="text-start">SKRINING CA MAMAE</td>
+                    <td id="mamae-59">-</td>
+                    <td id="mamae-59temu">-</td>
+                    <td id="mamae-60">-</td>
+                    <td id="mamae-60temu">-</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="text-start">SKRINING CA KOLORECTAL</td>
+                    <td id="Kolorektal-59">-</td>
+                    <td id="Kolorektal-59temu">-</td>
+                    <td id="Kolorektal-60">-</td>
+                    <td id="Kolorektal-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>8</td>
+                    <td class="text-start">SKRINING CA PARU</td>
+                    <td id="paru-59">-</td>
+                    <td id="paru-59temu">-</td>
+                    <td id="paru-60">-</td>
+                    <td id="paru-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>9</td>
+                    <td class="text-start">SKRINING DM</td>
+                    <td id="diabetes-59">-</td>
+                    <td id="diabetes-59temu">-</td>
+                    <td id="diabetes-60">-</td>
+                    <td id="diabetes-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>10</td>
+                    <td class="text-start">SKRINING PPOK</td>
+                    <td id="ppok-59">-</td>
+                    <td id="ppok-59temu">-</td>
+                    <td id="ppok-60">-</td>
+                    <td id="ppok-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>11</td>
+                    <td class="text-start">SKRINING GINJAL</td>
+                    <td id="ginjal-59">-</td>
+                    <td id="ginjal-59temu">-</td>
+                    <td id="ginjal-60">-</td>
+                    <td id="ginjal-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>12</td>
+                    <td class="text-start">SKRINING TBC</td>
+                    <td id="tbc-59">-</td>
+                    <td id="tbc-59temu">-</td>
+                    <td id="tbc-60">-</td>
+                    <td id="tbc-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>13</td>
+                    <td class="text-start">SKRINING MALARIA</td>
+                    <td id="malaria-59">-</td>
+                    <td id="malaria-59temu">-</td>
+                    <td id="malaria-60">-</td>
+                    <td id="malaria-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>14</td>
+                    <td class="text-start">	SKRINING HEPATITIS</td>
+                    <td id="Hepatitis-59">-</td>
+                    <td id="Hepatitis-59temu">-</td>
+                    <td id="Hepatitis-60">-</td>
+                    <td id="Hepatitis-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>15</td>
+                    <td class="text-start">	SKRINING HIV</td>
+                    <td id="Hiv-59">-</td>
+                    <td id="Hiv-59temu">-</td>
+                    <td id="Hiv-60">-</td>
+                    <td id="Hiv-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>16</td>
+                    <td class="text-start">	SKRINING JIWA</td>
+                    <td id="Jiwa-59">-</td>
+                    <td id="Jiwa-59temu">-</td>
+                    <td id="Jiwa-60">-</td>
+                    <td id="Jiwa-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>17</td>
+                    <td class="text-start">	SKRINING INDERA</td>
+                    <td id="Indera-59">-</td>
+                    <td id="Indera-59temu">-</td>
+                    <td id="Indera-60">-</td>
+                    <td id="Indera-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>18</td>
+                    <td class="text-start">	SKRINING SKILAS, ADL</td>
+                    <td id="Adl-59">-</td>
+                    <td id="Adl-59temu">-</td>
+                    <td id="Adl-60">-</td>
+                    <td id="Adl-60temu">-</td>
+                </tr>
+                 <tr>
+                    <td>19</td>
+                    <td class="text-start">	SKRINING CATIN</td>
+                    <td id="Catin-59">-</td>
+                    <td id="Catin-59temu">-</td>
+                    <td id="Catin-60">-</td>
+                    <td id="Catin-60temu">-</td>
+                </tr>
+               
+                
+            </tbody>
+           </table>
+         </div>
+      
+    
+         <div class="row mb-3">
+          <div class="col-md-4">
+              <label for="nama_pj">PJ KLASTER 3 (USIA DEWASA DAN LANSIA)</label>
+              <select id="nama_pj" class="form-select select2">
+                  <option value="">Pilih</option>
+              </select>
+              <!-- <p>NIP PJ: <span id="hasilNIP_pj"></span></p> -->
+               <input type="hidden" name="nip_pj" id="hasilNIP_pj">
+          </div>
+          
+          <div class="col-md-4">
+              <label for="nama_karyawan">NAMA PETUGAS</label>
+              <select id="nama_karyawan" class="form-select select2">
+                  <option value="">Pilih</option>
+              </select>
+              <!-- <p>NIP KARYAWAN: <span id="hasilNIP_karyawan"></span></p> -->
+               <input type="hidden" name="nip_karyawan" id="hasilNIP_karyawan">
+          </div>
+    
+           
+
+             <input type="hidden"   name="tahun"id="cetaktahun">
+             <input type="hidden" name="bulan" id="cetakbulan">
+             <input type="hidden" name="petugas" id="cetakpetugas">
+             <div class="col-md-4">
+               <label class="text-white">PJ KLASTER 3 (USIA DEWASA DAN LANSIA)</label>
+               <button type="submit" class="btn btn-primary">PRINT DATA</button>
+             
+           </div>
+         </form>
+         <script>
+          document.getElementById('print_form').addEventListener('submit', function(event) {
+              event.preventDefault();
+      
+              // Mengambil teks dari elemen <p> menggunakan innerText atau textContent
+              const cetakpetugas = document.getElementById('cetakpetugas').value;
+              const cetaktahun = document.getElementById('cetaktahun').value;
+              const cetakbulan = document.getElementById('cetakbulan').value;
+              const nama_pj = document.getElementById('nama_pj').value;
+              const nama_karyawan = document.getElementById('nama_karyawan').value;
+              const tahun = document.getElementById('tahun').value;
+              const bulan = document.getElementById('bulan').value;
+              const totalskrining = document.getElementById('total-skrining').innerText;
+              const skrin59 = document.getElementById('total-skrining-18-59').innerText;
+              const skrin60 = document.getElementById('total-skrining-60').innerText;
+              const nippj = document.getElementById('hasilNIP_pj').value;
+              const nipkaryawan = document.getElementById('hasilNIP_karyawan').value;
+              const Skriningobesitas1 = document.getElementById('Skriningobesitas-59').innerText;
+              const obestemu59 = document.getElementById('Skriningobesitas-59TEMU').innerText;
+              const obes60 = document.getElementById('Skriningobesitas-60').innerText;
+              const obestemu60 = document.getElementById('Skriningobesitas-60ketemu').innerText;
+              const ht_59 = document.getElementById('ht-59').innerText;
+              const ht59_temu = document.getElementById('ht-59temu').innerText;
+              const ht60 = document.getElementById('ht-60').innerText;
+              const ht60temu = document.getElementById('ht-60temu').innerText;
+              const stroke59 = document.getElementById('stroke-59').innerText;
+              const stroke59temu = document.getElementById('stroke-59temu').innerText;
+              const stroke60 = document.getElementById('stroke-60').innerText;
+              const stroke60temu = document.getElementById('stroke-60temu').innerText;
+              const jantung59 = document.getElementById('jantung-59').innerText;
+              const jantung59temu = document.getElementById('jantung-59temu').innerText;
+              const jantung60 = document.getElementById('jantung-60').innerText;
+              const jantung60temu = document.getElementById('jantung-60temu').innerText;
+              const cervix59 = document.getElementById('cervix-59').innerText;
+              const cervix59temu = document.getElementById('cervix-59temu').innerText;
+              const cervix60 = document.getElementById('cervix-60').innerText;
+              const cervix60temu = document.getElementById('cervix-60temu').innerText;
+              const mamae59 = document.getElementById('mamae-59').innerText;
+              const mamae59temu = document.getElementById('mamae-59temu').innerText;
+              const mamae60 = document.getElementById('mamae-60').innerText;
+              const mamae60temu = document.getElementById('mamae-60temu').innerText;
+              const Kolorektal59 = document.getElementById('Kolorektal-59').innerText;
+              const Kolorektal59temu = document.getElementById('Kolorektal-59temu').innerText;
+              const Kolorektal60 = document.getElementById('Kolorektal-60').innerText;
+              const Kolorektal60temu = document.getElementById('Kolorektal-60temu').innerText;
+              const paru59 = document.getElementById('paru-59').innerText;
+              const paru59temu = document.getElementById('paru-59temu').innerText;
+              const paru60 = document.getElementById('paru-60').innerText;
+              const paru60temu = document.getElementById('paru-60temu').innerText;
+              const diabetes59 = document.getElementById('diabetes-59').innerText;
+              const diabetes59temu = document.getElementById('diabetes-59temu').innerText;
+              const diabetes60 = document.getElementById('diabetes-60').innerText;
+              const diabetes60temu = document.getElementById('diabetes-60temu').innerText;
+              const ppok59 = document.getElementById('ppok-59').innerText;
+              const ppok59temu = document.getElementById('ppok-59temu').innerText;
+              const ppok60 = document.getElementById('ppok-60').innerText;
+              const ppok60temu = document.getElementById('ppok-60temu').innerText;
+              const ginjal59 = document.getElementById('ginjal-59').innerText;
+              const ginjal59temu = document.getElementById('ginjal-59temu').innerText;
+              const ginjal60 = document.getElementById('ginjal-60').innerText;
+              const ginjal60temu = document.getElementById('ginjal-60temu').innerText;
+              const tbc59 = document.getElementById('tbc-59').innerText;
+              const tbc59temu = document.getElementById('tbc-59temu').innerText;
+              const tbc60 = document.getElementById('tbc-60').innerText;
+              const tbc60temu = document.getElementById('tbc-60temu').innerText;
+              const malaria59 = document.getElementById('malaria-59').innerText;
+              const malaria59temu = document.getElementById('malaria-59temu').innerText;
+              const malaria60 = document.getElementById('malaria-60').innerText;
+              const malaria60temu = document.getElementById('malaria-60temu').innerText;
+              const Hepatitis59 = document.getElementById('Hepatitis-59').innerText;
+              const Hepatitis59temu = document.getElementById('Hepatitis-59temu').innerText;
+              const Hepatitis60 = document.getElementById('Hepatitis-60').innerText;
+              const Hepatitis60temu = document.getElementById('Hepatitis-60temu').innerText;
+              const hiv59 = document.getElementById('Hiv-59').innerText;
+              const hiv59temu = document.getElementById('Hiv-59temu').innerText;
+              const hiv60 = document.getElementById('Hiv-60').innerText;
+              const hiv60temu = document.getElementById('Hiv-60temu').innerText;
+              const Jiwa59 = document.getElementById('Jiwa-59').innerText;
+              const Jiwa59temu = document.getElementById('Jiwa-59temu').innerText;
+              const Jiwa60 = document.getElementById('Jiwa-60').innerText;
+              const Jiwa60temu = document.getElementById('Jiwa-60temu').innerText;
+              const Indera59 = document.getElementById('Indera-59').innerText;
+              const Indera59temu = document.getElementById('Indera-59temu').innerText;
+              const Indera60 = document.getElementById('Indera-60').innerText;
+              const Indera60temu = document.getElementById('Indera-60temu').innerText;
+              const Adl59 = document.getElementById('Adl-59').innerText;
+              const Adl59temu = document.getElementById('Adl-59temu').innerText;
+              const Adl60 = document.getElementById('Adl-60').innerText;
+              const Adl60temu = document.getElementById('Adl-60temu').innerText;
+              const Catin59 = document.getElementById('Catin-59').innerText;
+              const Catin59temu = document.getElementById('Catin-59temu').innerText;
+              const Catin60 = document.getElementById('Catin-60').innerText;
+              const Catin60temu = document.getElementById('Catin-60temu').innerText;
+              
+
+      
+              // Simpan data di localStorage
+              localStorage.setItem('cetakpetugas', cetakpetugas);
+              localStorage.setItem('cetaktahun', cetaktahun);
+              localStorage.setItem('cetakbulan', cetakbulan);
+              localStorage.setItem('nama_karyawan', nama_karyawan);
+              localStorage.setItem('nama_pj', nama_pj);
+              localStorage.setItem('tahun', tahun);
+              localStorage.setItem('bulan', bulan);
+              localStorage.setItem('Skriningobesitas1', Skriningobesitas1);
+              localStorage.setItem('totalskrining', totalskrining);
+              localStorage.setItem('skrin59', skrin59);
+              localStorage.setItem('skrin60', skrin60);
+              localStorage.setItem('obestemu59', obestemu59);
+              localStorage.setItem('nippj', nippj);
+              localStorage.setItem('nipkaryawan', nipkaryawan);
+              localStorage.setItem('obes60', obes60);
+              localStorage.setItem('obestemu60', obestemu60);
+              localStorage.setItem('ht_59', ht_59);
+              localStorage.setItem('ht59_temu', ht59_temu);
+              localStorage.setItem('ht60', ht60);
+              localStorage.setItem('ht60temu', ht60temu);
+              localStorage.setItem('stroke59', stroke59);
+              localStorage.setItem('stroke59temu', stroke59temu);
+              localStorage.setItem('stroke60', stroke60);
+              localStorage.setItem('stroke60temu', stroke60temu);
+              localStorage.setItem('jantung59', jantung59);
+              localStorage.setItem('jantung59temu', stroke60temu);
+              localStorage.setItem('jantung60', jantung60);
+              localStorage.setItem('jantung60temu', jantung60temu);
+              localStorage.setItem('cervix59', cervix59);
+              localStorage.setItem('cervix59temu', cervix59temu);
+              localStorage.setItem('cervix60', cervix60);
+              localStorage.setItem('cervix60temu', cervix60temu);
+              localStorage.setItem('mamae59', mamae59);
+              localStorage.setItem('mamae59temu', mamae59temu);
+              localStorage.setItem('mamae60', mamae60);
+              localStorage.setItem('mamae60temu', mamae60temu);
+              localStorage.setItem('Kolorektal59', Kolorektal59);
+              localStorage.setItem('Kolorektal59temu', Kolorektal59temu);
+              localStorage.setItem('Kolorektal60', Kolorektal60);
+              localStorage.setItem('Kolorektal60temu', Kolorektal60temu);
+              localStorage.setItem('paru59', paru59);
+              localStorage.setItem('paru59temu', paru59temu);
+              localStorage.setItem('paru60', paru60);
+              localStorage.setItem('paru60temu', paru60temu);
+              localStorage.setItem('diabetes59', diabetes59);
+              localStorage.setItem('diabetes59temu', diabetes59temu);
+              localStorage.setItem('diabetes60', diabetes60);
+              localStorage.setItem('diabetes60temu', diabetes60temu);
+              localStorage.setItem('ppok59', ppok59);
+              localStorage.setItem('ppok59temu', ppok59temu);
+              localStorage.setItem('ppok60', ppok60);
+              localStorage.setItem('ppok60temu', ppok60temu);
+              localStorage.setItem('ginjal59', ginjal59);
+              localStorage.setItem('ginjal59temu', ginjal59temu);
+              localStorage.setItem('ginjal60', ginjal60);
+              localStorage.setItem('ginjal60temu', ginjal60temu);
+              localStorage.setItem('tbc59', tbc59);
+              localStorage.setItem('tbc59temu', tbc59temu);
+              localStorage.setItem('tbc60', tbc60);
+              localStorage.setItem('tbc60temu', tbc60temu);
+              localStorage.setItem('tbc59', tbc59);
+              localStorage.setItem('tbc59temu', tbc59temu);
+              localStorage.setItem('tbc60', tbc60);
+              localStorage.setItem('tbc60temu', tbc60temu);
+              localStorage.setItem('malaria59', malaria59);
+              localStorage.setItem('malaria59temu', malaria59temu);
+              localStorage.setItem('malaria60', malaria60);
+              localStorage.setItem('malaria60temu', malaria60temu);
+              localStorage.setItem('Hepatitis59', Hepatitis59);
+              localStorage.setItem('Hepatitis59temu', Hepatitis59temu);
+              localStorage.setItem('Hepatitis60', Hepatitis60);
+              localStorage.setItem('Hepatitis60temu', Hepatitis60temu);
+              localStorage.setItem('hiv59', hiv59);
+              localStorage.setItem('hiv59temu', hiv59temu);
+              localStorage.setItem('hiv60', hiv60);
+              localStorage.setItem('hiv60temu', hiv60temu);
+              localStorage.setItem('Jiwa59', Jiwa59);
+              localStorage.setItem('Jiwa59temu', Jiwa59temu);
+              localStorage.setItem('Jiwa60', Jiwa60);
+              localStorage.setItem('Jiwa60temu', Jiwa60temu);
+              localStorage.setItem('Indera59', Indera59);
+              localStorage.setItem('Indera59temu', Indera59temu);
+              localStorage.setItem('Indera60', Indera60);
+              localStorage.setItem('Indera60temu', Indera60temu);
+              localStorage.setItem('Adl59', Adl59);
+              localStorage.setItem('Adl59temu', Adl59temu);
+              localStorage.setItem('Adl60', Adl60);
+              localStorage.setItem('Adl60temu', Adl60temu);
+              localStorage.setItem('Catin59', Catin59);
+              localStorage.setItem('Catin59temu', Catin59temu);
+              localStorage.setItem('Catin60', Catin60);
+              localStorage.setItem('Catin60temu', Catin60temu);
+
+
+              // Redirect ke halaman hasil
+              window.location.href = 'surat.html';
+          });
+      </script>
+      
+        </div>
+      </div>
+    </div>
+    
+ 
+
+
+        <!-- </div> -->
+      </div>
+
+      <!-- Hero Header End -->
+    </div>
+    <!-- Navbar & Hero End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-2 fixed-bottom">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-md-0">
+            <span class="text-white"
+              ><a href="#"
+                ><i class="fas fa-copyright text-light me-2"></i>Skrining
+                Puskesmas Trenggalek</a
+              >
+              , All right reserved.</span
+            >
+          </div>
+          <div class="col-md-6 text-center text-md-end text-white">
+            Designed By
+            <a class="border-bottom" href="https://htmlcodex.com"
+              >@Yoga | 2024</a
+            >
+            <!-- Distributed By
+            <a class="border-bottom" href="https://themewagon.com"
+              >ThemeWagon</a
+            > -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <!-- <a href="#" class="btn btn-primary btn-lg-square back-to-top"
+      ><i class="fa fa-arrow-up"></i
+    ></a> -->
+
+  
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="wow.min.js"></script>
+    <script src="easing.min.js"></script>
+    <script src="waypoints.min.js"></script>
+    <script src="counterup.min.js"></script>
+    <script src="owl.carousel.min.js"></script>
+    <script src="lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="main.js"></script>
+      
+     <script>
+      $(document).ready(function () {
+        $(".select2").select2({
+          theme: "bootstrap4",
+          width: "100%",
+          allowClear: true,
+        });
+
+        const apiUrl = "https://script.google.com/macros/s/AKfycbz1L8ZnuTuTb9hnGawjTUafH4SYklWYvKr8AgGyzNBod04_YyCjPEYJL-RgDrEaZ361/exec";
+
+        $("#loading-page").show();
+
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            $("#loading-page").fadeOut(500);
+
+            let petugasSet = new Set();
+            let tahunSet = new Set();
+            let bulanSet = new Set();
+
+            data.forEach((item) => {
+              if (item.Petugas) {
+                item.Petugas.split(",").forEach((p) => petugasSet.add(p.trim()));
+              }
+              if (item.TANGGAL) {
+                let date = new Date(item.TANGGAL);
+                if (!isNaN(date)) {
+                  tahunSet.add(date.getFullYear());
+                  bulanSet.add(date.getMonth() + 1);
+                }
+              }
+            });
+           
+            $("#tahun").append([...tahunSet].map((tahun) => `<option value="${tahun}">${tahun}</option>`));
+            $("#petugas").append([...petugasSet].map((petugas) => `<option value="${petugas}">${petugas}</option>`));
+
+            const bulanNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+            $("#bulan").append([...bulanSet].map((bulan) => `<option value="${bulan}">${bulanNames[bulan - 1]}</option>`));
+
+
+            function filterData() {
+              const selectedTahun = $("#tahun").val();
+              const selectedBulan = $("#bulan").val();
+              const selectedPetugas = $("#petugas").val();
+              
+              const filteredData = data.filter((item) => {
+                return (!selectedTahun || new Date(item.TANGGAL).getFullYear() == selectedTahun) &&
+                       (!selectedBulan || new Date(item.TANGGAL).getMonth() + 1 == selectedBulan) &&
+                       (!selectedPetugas || item.Petugas?.includes(selectedPetugas));
+
+                      
+              });
+              
+              document.getElementById("cetaktahun").value = selectedTahun || "Tidak Dipilih";
+              document.getElementById("cetakbulan").value = selectedBulan || "Tidak Dipilih";
+              document.getElementById("cetakpetugas").value = selectedPetugas || "Tidak Dipilih";
+              $("#total-skrining").text(filteredData.length);
+              $("#total-skrining-18-59").text(filteredData.filter(item => !isNaN(parseInt(item.USIA)) && parseInt(item.USIA) <= 59).length);
+              $("#total-skrining-60").text(filteredData.filter(item => !isNaN(parseInt(item.USIA)) && parseInt(item.USIA) >= 60 ).length);
+              $("#Skriningobesitas-59").text(filteredData.filter(item => item.Dilakukan_skrining_obesitas && parseInt(item.USIA) <= 59).length);
+              $("#Skriningobesitas-59TEMU").text(filteredData.filter(item => item.Hasil_obesitas && parseInt(item.USIA) <= 59).length);
+              $("#Skriningobesitas-60").text(filteredData.filter(item => item.Dilakukan_skrining_obesitas && parseInt(item.USIA) >= 60).length);
+              $("#Skriningobesitas-60TEMU").text(filteredData.filter(item => item.Hasil_obesitas && parseInt(item.USIA)  >= 60).length);
+             
+              $("#ht-59").text(filteredData.filter(item => item.Dilakukan_skrining_HT && parseInt(item.USIA) <= 59).length);
+              $("#ht-59temu").text(filteredData.filter(item => item.Ditemukan_HT && parseInt(item.USIA) <= 59).length);
+              $("#ht-60").text(filteredData.filter(item => item.Dilakukan_skrining_HT && parseInt(item.USIA) >= 60).length);
+              $("#ht-60temu").text(filteredData.filter(item => item.Ditemukan_HT && parseInt(item.USIA) >= 60).length);
+
+              $("#stroke-59").text(filteredData.filter(item => item.Stroke && parseInt(item.USIA) <= 59).length);
+              $("#stroke-59temu").text(filteredData.filter(item => item.Hasil_Stroke && parseInt(item.USIA) <= 59).length);
+              $("#stroke-60").text(filteredData.filter(item => item.Stroke && parseInt(item.USIA) >= 60).length);
+              $("#stroke-60temu").text(filteredData.filter(item => item.Hasil_Stroke && parseInt(item.USIA) >= 60).length);
+
+              $("#jantung-59").text(filteredData.filter(item => item.Jantung && parseInt(item.USIA) <= 59).length);
+              $("#jantung-59temu").text(filteredData.filter(item => item.Hasil_Jantung && parseInt(item.USIA) <= 59).length);
+              $("#jantung-60").text(filteredData.filter(item => item.Jantung && parseInt(item.USIA) >= 60).length);
+              $("#jantung-60temu").text(filteredData.filter(item => item.Hasil_Jantung && parseInt(item.USIA) >= 60).length);
+
+              $("#cervix-59").text(filteredData.filter(item => item.Cervix && parseInt(item.USIA) <= 59).length);
+              $("#cervix-59temu").text(filteredData.filter(item => item.Hasil_cervix && parseInt(item.USIA) <= 59).length);
+              $("#cervix-60").text(filteredData.filter(item => item.Cervix && parseInt(item.USIA) >= 60).length);
+              $("#cervix-60temu").text(filteredData.filter(item => item.Hasil_cervix && parseInt(item.USIA) >= 60).length);
+
+              $("#mamae-59").text(filteredData.filter(item => item.Mamae && parseInt(item.USIA) <= 59).length);
+              $("#mamae-59temu").text(filteredData.filter(item => item.Hasil_mamae && parseInt(item.USIA) <= 59).length);
+              $("#mamae-60").text(filteredData.filter(item => item.Mamae && parseInt(item.USIA) >= 60).length);
+              $("#mamae-60temu").text(filteredData.filter(item => item.Hasil_mamae && parseInt(item.USIA) >= 60).length);
+
+              $("#Kolorektal-59").text(filteredData.filter(item => item.Kolorektal && parseInt(item.USIA) <= 59).length);
+              $("#Kolorektal-59temu").text(filteredData.filter(item => item.Hasil_Kolorektal && parseInt(item.USIA) <= 59).length);
+              $("#Kolorektal-60").text(filteredData.filter(item => item.Kolorektal && parseInt(item.USIA) >= 60).length);
+              $("#Kolorektal-60temu").text(filteredData.filter(item => item.Hasil_Kolorektal && parseInt(item.USIA) >= 60).length);
+
+              $("#paru-59").text(filteredData.filter(item => item.Paru && parseInt(item.USIA) <= 59).length);
+              $("#paru-59temu").text(filteredData.filter(item => item.Hasil_Paru && parseInt(item.USIA) <= 59).length);
+              $("#paru-60").text(filteredData.filter(item => item.Paru && parseInt(item.USIA) >= 60).length);
+              $("#paru-60temu").text(filteredData.filter(item => item.Hasil_Paru && parseInt(item.USIA) >= 60).length);
+
+              $("#diabetes-59").text(filteredData.filter(item => item.Diabetes && parseInt(item.USIA) <= 59).length);
+              $("#diabetes-59temu").text(filteredData.filter(item => item.Hasil_Diabetes && parseInt(item.USIA) <= 59).length);
+              $("#diabetes-60").text(filteredData.filter(item => item.Diabetes && parseInt(item.USIA) >= 60).length);
+              $("#diabetes-60temu").text(filteredData.filter(item => item.Hasil_Diabetes && parseInt(item.USIA) >= 60).length);
+
+              $("#ppok-59").text(filteredData.filter(item => item.Ppok && parseInt(item.USIA) <= 59).length);
+              $("#ppok-59temu").text(filteredData.filter(item => item.Hasil_Ppok && parseInt(item.USIA) <= 59).length);
+              $("#ppok-60").text(filteredData.filter(item => item.Ppok && parseInt(item.USIA) >= 60).length);
+              $("#ppok-60temu").text(filteredData.filter(item => item.Hasil_Ppok && parseInt(item.USIA) >= 60).length);
+
+              $("#ginjal-59").text(filteredData.filter(item => item.Ginjal && parseInt(item.USIA) <= 59).length);
+              $("#ginjal-59temu").text(filteredData.filter(item => item.Hasil_ginjal && parseInt(item.USIA) <= 59).length);
+              $("#ginjal-60").text(filteredData.filter(item => item.Ginjal && parseInt(item.USIA) >= 60).length);
+              $("#ginjal-60temu").text(filteredData.filter(item => item.Hasil_ginjal && parseInt(item.USIA) >= 60).length);
+
+              $("#tbc-59").text(filteredData.filter(item => item.Tbc && parseInt(item.USIA) <= 59).length);
+              $("#tbc-59temu").text(filteredData.filter(item => item.Hasil_Tbc && parseInt(item.USIA) <= 59).length);
+              $("#tbc-60").text(filteredData.filter(item => item.Tbc && parseInt(item.USIA) >= 60).length);
+              $("#tbc-60temu").text(filteredData.filter(item => item.Hasil_Tbc && parseInt(item.USIA) >= 60).length);
+
+              $("#malaria-59").text(filteredData.filter(item => item.Malaria && parseInt(item.USIA) <= 59).length);
+              $("#malaria-59temu").text(filteredData.filter(item => item.Hasil_Malaria && parseInt(item.USIA) <= 59).length);
+              $("#malaria-60").text(filteredData.filter(item => item.Malaria && parseInt(item.USIA) >= 60).length);
+              $("#malaria-60temu").text(filteredData.filter(item => item.Hasil_Malaria && parseInt(item.USIA) >= 60).length);
+
+              $("#Hepatitis-59").text(filteredData.filter(item => item.Hepatitis && parseInt(item.USIA) <= 59).length);
+              $("#Hepatitis-59temu").text(filteredData.filter(item => item.Hasil_Hepatitis && parseInt(item.USIA) <= 59).length);
+              $("#Hepatitis-60").text(filteredData.filter(item => item.Hepatitis && parseInt(item.USIA) >= 60).length);
+              $("#Hepatitis-60temu").text(filteredData.filter(item => item.Hasil_Hepatitis && parseInt(item.USIA) >= 60).length);
+
+              $("#Hiv-59").text(filteredData.filter(item => item.Hiv == "YA" && parseInt(item.USIA) <= 59).length);
+              $("#Hiv-59temu").text(filteredData.filter(item => item.Hasil_Hiv && parseInt(item.USIA) <= 59).length);
+              $("#Hiv-60").text(filteredData.filter(item => item.Hiv =="YA" && parseInt(item.USIA) >= 60).length);
+              $("#Hiv-60temu").text(filteredData.filter(item => item.Hasil_Hiv && parseInt(item.USIA) >= 60).length);
+
+              $("#Jiwa-59").text(filteredData.filter(item => item.Jiwa == "YA" && parseInt(item.USIA) <= 59).length);
+              $("#Jiwa-59temu").text(filteredData.filter(item => item.Hasil_Jiwa && parseInt(item.USIA) <= 59).length);
+              $("#Jiwa-60").text(filteredData.filter(item => item.Jiwa =="YA" && parseInt(item.USIA) >= 60).length);
+              $("#Jiwa-60temu").text(filteredData.filter(item => item.Hasil_Jiwa && parseInt(item.USIA) >= 60).length);
+
+              $("#Indera-59").text(filteredData.filter(item => item.Indera == "YA" && parseInt(item.USIA) <= 59).length);
+              $("#Indera-59temu").text(filteredData.filter(item => item.Hasil_Indera == "YA" && parseInt(item.USIA) <= 59).length);
+              $("#Indera-60").text(filteredData.filter(item => item.Indera =="YA" && parseInt(item.USIA) >= 60).length);
+              $("#Indera-60temu").text(filteredData.filter(item => item.Hasil_Indera == "YA" && parseInt(item.USIA) >= 60).length);
+
+              $("#Adl-59").text(filteredData.filter(item => item.Adl == "YA" && parseInt(item.USIA) <= 59).length);
+              $("#Adl-59temu").text(filteredData.filter(item => item.Hasil_Adl == "C" && parseInt(item.USIA) <= 59).length);
+              $("#Adl-60").text(filteredData.filter(item => item.Adl =="YA" && parseInt(item.USIA) >= 60).length);
+              $("#Adl-60temu").text(filteredData.filter(item => item.Hasil_Adl == "C" && parseInt(item.USIA) >= 60).length);
+
+              $("#Catin-59").text(filteredData.filter(item => item.Catin == "YA" && parseInt(item.USIA) <= 59).length);
+              $("#Catin-59temu").text(filteredData.filter(item => item.Hasil_Catin == "C" && parseInt(item.USIA) <= 59).length);
+              $("#Catin-60").text(filteredData.filter(item => item.Catin =="YA" && parseInt(item.USIA) >= 60).length);
+              $("#Catin-60temu").text(filteredData.filter(item => item.Hasil_Catin == "C" && parseInt(item.USIA) >= 60).length);
+            }
+
+            $("#tahun, #bulan, #petugas").on("change", filterData);
+          });
+      });
+    
+   
+     const apiUrl = "https://script.google.com/macros/s/AKfycbwUCcZNS9AaFEhzLNvF7Hb1dcoPXPguYMaUnQmvzjhnUWvgSP5CiFh67BswzdULqmZt/exec";
+
+      async function fetchData() {
+          try {
+              const response = await fetch(apiUrl);
+              const data = await response.json();
+      
+              const nama_pjSet = new Set();
+              const nama_karyawanSet = new Set();
+              const nipMap = new Map();
+      
+              data.forEach(({ NAMA, NIP }) => {
+                  if (NAMA && NIP) {
+                      const namaTrim = NAMA.trim();
+                      nama_pjSet.add(namaTrim);
+                      nama_karyawanSet.add(namaTrim);
+                      nipMap.set(namaTrim, NIP.trim());
+                  }
+              });
+      
+              console.log("Data NIP Map:", nipMap); // Debugging
+      
+              const namaPjSelect = document.getElementById("nama_pj");
+              const namaKaryawanSelect = document.getElementById("nama_karyawan");
+      
+              // Gunakan DocumentFragment untuk mempercepat manipulasi DOM
+              const fragmentPj = document.createDocumentFragment();
+              const fragmentKaryawan = document.createDocumentFragment();
+      
+              nama_pjSet.forEach((nama) => {
+                  const option = document.createElement("option");
+                  option.value = nama;
+                  option.textContent = nama;
+                  fragmentPj.appendChild(option);
+              });
+      
+              nama_karyawanSet.forEach((nama) => {
+                  const option = document.createElement("option");
+                  option.value = nama;
+                  option.textContent = nama;
+                  fragmentKaryawan.appendChild(option);
+              });
+      
+              namaPjSelect.appendChild(fragmentPj);
+              namaKaryawanSelect.appendChild(fragmentKaryawan);
+      
+              function handleSelection(event, outputId) {
+                  const selectedNama = event.target.value;
+                  document.getElementById(outputId).value = nipMap.get(selectedNama) || "-";
+                  console.log("Dipilih:", selectedNama, "NIP:", nipMap.get(selectedNama) || "-"); // Debugging
+              }
+      
+              namaPjSelect.addEventListener("change", (e) => handleSelection(e, "hasilNIP_pj"));
+              namaKaryawanSelect.addEventListener("change", (e) => handleSelection(e, "hasilNIP_karyawan"));
+          } catch (error) {
+              console.error("ERROR FETCHING DATA:", error);
+          }
+      }
+      
+      // Panggil fungsi untuk mengambil data
+      fetchData();
+  </script>
+  </body>
+</html>
