@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>PKM TGLK | SKRINING</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Rubik:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css"
+    />
+    <!-- Libraries Stylesheet -->
+    <link href="animate.min.css" rel="stylesheet" />
+    <link href="owl.carousel.min.css" rel="stylesheet" />
+    <link href="lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="bootstrap.min.css" rel="stylesheet" />
+
+    <!-- DataTables JS -->
+    <link
+      href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Template Stylesheet -->
+    <link href="style.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@1.5.2/dist/select2-bootstrap4.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- jQuery & Select2 -->
+<!--     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <style>
+         #total-skrining-card {
+        padding: 40px;
+        color: #333;
+        background-color: #f8f9fa;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      #loading-page {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
+      }
+      .dot-spinner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .dot-spinner div {
+        width: 10px;
+        height: 10px;
+        margin: 0 3px;
+        background-color: #f74780;
+        border-radius: 50%;
+        animation: bounce 1.4s infinite ease-in-out both;
+      }
+      .dot-spinner div:nth-child(1) {
+        animation-delay: -0.32s;
+      }
+      .dot-spinner div:nth-child(2) {
+        animation-delay: -0.16s;
+      }
+      .dot-spinner div:nth-child(3) {
+        animation-delay: 0s;
+      }
+
+      @keyframes bounce {
+        0%,
+        80%,
+        100% {
+          transform: scale(0);
+        }
+        40% {
+          transform: scale(1);
+        }
+      }
+      #loading-text {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #f74780;
+      }
+    </style>  
+  </head>
+
+  <body>
+    <!-- Spinner Start -->
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div
+        class="spinner-border text-primary"
+        style="width: 3rem; height: 3rem"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid header position-relative overflow-hidden p-0">
+      <nav
+        class="navbar navbar-expand-lg fixed-top navbar-light px-4 px-lg-5 py-3 py-lg-0"
+      >
+        <a href="index.html" class="navbar-brand p-0">
+          <h1 class="display-6 text-primary m-0">
+            <i class="fas fa-hand-holding-medical"></i> Puskesmas Trenggalek
+          </h1>
+          <!-- <img src="img/logo.png" alt="Logo"> -->
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+        >
+          <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto py-0">
+            <a href="index.html" class="nav-item nav-link">Home</a>
+            <a href="screening.html" class="nav-item nav-link">Screening</a>
+            <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+          </div>
+          <!-- <a
+            href="#"
+            class="btn btn-light border border-primary rounded-pill text-primary py-2 px-4 me-4"
+            >Log In</a
+          >
+          <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4"
+            >Sign Up</a
+          > -->
+        </div>
+      </nav>
+
+      <!-- Hero Header Start -->
+      <div class="hero-header overflow-hidden px-5">
+        <div class="rotate-img">
+<!--           <img src="img/sty-1.png" class="img-fluid w-100" alt="" /> -->
+          <div class="rotate-sty-2"></div>
+        </div>
+<!--         https://docs.google.com/spreadsheets/d/1b-t0uL56KjwjFl0BbzNTp0my2yTaYqrwgosDyXDuDsM/edit?usp=sharing -->
+        
+    
+         <body class="bg-light">
+
+            <div id="loading-page">
+      <div class="dot-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div id="loading-text">Memuat data...</div>
+    </div>
+
+    <div class="container my-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <div class="header text-center mb-3">
+            <h2>REKAP SKRINING KLASTER 2</h2>
+            <p>
+              <strong
+                >SKRINING IBU HAMIL, NIFAS, BAYI, BALITA PUSKESMAS TRENGGALEK
+                KABUPATEN TRENGGALEK</strong
+              >
+            </p>
+          </div>
+
+          <form id="print_form">
+            <!-- Filter Section -->
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="tahun">Tahun:</label>
+                <select
+                  id="tahun"
+                  class="form-select select2"
+                  aria-label="Pilih Tahun"
+                >
+                  <option value="">Pilih Tahun</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="bulan">Bulan:</label>
+                <select
+                  id="bulan"
+                  class="form-select select2"
+                  aria-label="Pilih Bulan"
+                >
+                  <option value="">Semua Bulan</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="petugas">Petugas:</label>
+                <select
+                  id="petugas"
+                  class="form-select select2"
+                  aria-label="Pilih Petugas"
+                >
+                  <option value="">Semua Petugas</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Tombol Filter -->
+            <div class="text-center mb-4">
+              <button type="button" id="filter-button" class="btn btn-warning">
+                Filter Data
+              </button>
+            </div>
+
+            <!-- Total Skrining Section -->
+            <div class="d-flex justify-content-center my-4">
+              <div id="total-skrining-card" class="text-center w-25 shadow">
+                <h3>Total Skrining</h3>
+                <p class="fs-1" id="total-skrining">0</p>
+              </div>
+            </div>
+
+            <!-- Tabel Laporan -->
+            <div class="table-responsive">
+              <table class="table table-bordered text-center mt-4 shadow">
+                <thead class="table-primary">
+                  <tr>
+                    <th>No</th>
+                    <th>Indikator</th>
+                    <th>Total Skrining</th>
+                    <th>Ditemukan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td class="text-start">Skrining Gigi dan Mulut</td>
+                    <td id="GIGI">-</td>
+                    <td id="HASILGIGI">-</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td class="text-start">
+                      Skrining USG (2x/kehamilan TM 1 & 3)
+                    </td>
+                    <td id="USG">-</td>
+                    <td id="HASILUSG">-</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td class="text-start">HIV ( 1x/ kehamilan TM 1)</td>
+                    <td id="HIV">-</td>
+                    <td id="HASILHIV">-</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td class="text-start">SIVILIS ( 1x/ kehamilan TM 1)</td>
+                    <td id="SIVILIS">-</td>
+                    <td id="HASILSIVILIS">-</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td class="text-start">
+                      HEPATITIS B ( 1x/ kehamilan TM 1)
+                    </td>
+                    <td id="HEPATITIS">-</td>
+                    <td id="HASILHEPATITIS">-</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td class="text-start">
+                      MALARIA (daerah endemis 1x/ kehamilan)
+                    </td>
+                    <td id="MALARIA">-</td>
+                    <td id="HASILMALARIA">-</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td class="text-start">TBC</td>
+                    <td id="TBC">-</td>
+                    <td id="HASILTBC">-</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td class="text-start">KESEHATAN JIWA (TM 1 & 3)</td>
+                    <td id="JIWA">-</td>
+                    <td id="HASILJIWA">-</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td class="text-start">
+                      PRE EKLAMSI (Tiap kali kunjungan)
+                    </td>
+                    <td id="EKLAMSI">-</td>
+                    <td id="HASILEKLAMSI">-</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td class="text-start">KSPR</td>
+                    <td id="KSPR">-</td>
+                    <td id="HASILKSPR">-</td>
+                  </tr>
+                  <tr>
+                    <td>11</td>
+                    <td class="text-start">LILA</td>
+                    <td id="LILA">-</td>
+                    <td id="HASILLILA">-</td>
+                  </tr>
+                  <tr>
+                    <td>12</td>
+                    <td class="text-start">TENSI</td>
+                    <td id="TENSI">-</td>
+                    <td id="HASILTENSI">-</td>
+                  </tr>
+                  <tr>
+                    <td>13</td>
+                    <td class="text-start">SKRINING ANEMIA</td>
+                    <td id="ANEMIA">-</td>
+                    <td id="HASILANEMIA">-</td>
+                  </tr>
+                  <tr>
+                    <td>14</td>
+                    <td class="text-start">
+                      SKRINING PEMBERIAN TABLET TAMBAH DARAH
+                    </td>
+                    <td id="TD">-</td>
+                    <td id="HASILTD">-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+            
+
+      
+        </div>
+      </div>
+    </div>
+    
+ 
+
+
+        <!-- </div> -->
+      </div>
+
+      <!-- Hero Header End -->
+    </div>
+    <!-- Navbar & Hero End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-2 fixed-bottom">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-md-0">
+            <span class="text-white"
+              ><a href="#"
+                ><i class="fas fa-copyright text-light me-2"></i>Skrining
+                Puskesmas Trenggalek</a
+              >
+              , All right reserved.</span
+            >
+          </div>
+          <div class="col-md-6 text-center text-md-end text-white">
+            Designed By
+            <a class="border-bottom" href="https://htmlcodex.com"
+              >@Yoga | 2024</a
+            >
+            <!-- Distributed By
+            <a class="border-bottom" href="https://themewagon.com"
+              >ThemeWagon</a
+            > -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <!-- <a href="#" class="btn btn-primary btn-lg-square back-to-top"
+      ><i class="fa fa-arrow-up"></i
+    ></a> -->
+
+  
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="wow.min.js"></script>
+    <script src="easing.min.js"></script>
+    <script src="waypoints.min.js"></script>
+    <script src="counterup.min.js"></script>
+    <script src="owl.carousel.min.js"></script>
+    <script src="lightbox.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".select2")
+          .select2({
+            theme: "bootstrap4",
+            width: "100%",
+            minimumResultsForSearch: 0,
+          })
+          .on("select2:open", function () {
+            setTimeout(() => {
+              let searchField = document.querySelector(
+                ".select2-container--open .select2-search__field"
+              );
+              if (searchField) searchField.focus();
+            }, 100);
+          });
+
+        function fetchData() {
+          $("#loading-page").show();
+          $.getJSON(
+            "https://script.google.com/macros/s/AKfycbxZcP-pFoM1xptWu9IgKOHX2wf_UZpJmK5Dl8B_l7i0oWaVBKOmQotEkRSEL4cK29oryg/exec",
+            function (data) {
+              let years = new Set();
+              let months = new Set();
+              let petugas = new Set();
+
+              data.forEach((item) => {
+                let date = new Date(item.TANGGAL);
+                if (!isNaN(date.getTime())) {
+                  years.add(date.getFullYear());
+                  months.add(date.toLocaleString("id-ID", { month: "long" }));
+                }
+                if (item.petugas && item.petugas !== "NaN") {
+                  petugas.add(item.petugas);
+                }
+              });
+
+              // Populate Tahun
+              $("#tahun")
+                .empty()
+                .append('<option value="">Pilih Tahun</option>');
+              years.forEach((year) => {
+                $("#tahun").append(new Option(year, year));
+              });
+
+              // Populate Bulan
+              $("#bulan")
+                .empty()
+                .append('<option value="">Semua Bulan</option>');
+              months.forEach((month) => {
+                $("#bulan").append(new Option(month, month));
+              });
+
+              // Populate Petugas
+              $("#petugas")
+                .empty()
+                .append('<option value="">Semua Petugas</option>');
+              petugas.forEach((name) => {
+                $("#petugas").append(new Option(name, name));
+              });
+
+              $("#loading-page").hide();
+
+              // Tombol Filter
+              $("#filter-button").on("click", function () {
+                if (!$("#tahun").val()) {
+                  Swal.fire({
+                    icon: "warning",
+                    title: "Oops...",
+                    text: "Pastikan filter Tahun telah dipilih!",
+                    timer: 2000,
+                    showConfirmButton: false,
+                    width: "300px",
+                  });
+                  return;
+                }
+                updateSkriningData(data);
+              });
+            }
+          ).fail(function () {
+            alert("Gagal mengambil data dari API.");
+            $("#loading-page").hide();
+          });
+        }
+
+        function updateSkriningData(data) {
+          let tahun = $("#tahun").val();
+          let bulan = $("#bulan").val();
+          let petugas = $("#petugas").val();
+
+          let filteredData = data.filter((item) => {
+            let date = new Date(item.TANGGAL);
+            let yearMatch = !tahun || date.getFullYear().toString() === tahun;
+            let monthMatch =
+              !bulan ||
+              date.toLocaleString("id-ID", { month: "long" }) === bulan;
+            let petugasMatch = !petugas || item.petugas === petugas;
+
+            return yearMatch && monthMatch && petugasMatch;
+          });
+
+          $("#total-skrining").text(filteredData.length);
+
+          let totalGigi = filteredData.filter(
+            (item) => parseInt(item.SKRINING_GIGI) > 0
+          ).length;
+          let hasilGigi = filteredData.filter(
+            (item) => parseInt(item.HASIL_GIGI) > 0
+          ).length;
+          let totalUSG = filteredData.filter(
+            (item) => item.USG && item.USG.trim() !== ""
+          ).length;
+          let hasilUSG = filteredData.filter(
+            (item) => item.HASIL_USG && item.HASIL_USG.trim() !== ""
+          ).length;
+          let totalHIV = filteredData.filter(
+            (item) => item.HIV && item.HIV.trim() !== ""
+          ).length;
+          let hasilHIV = filteredData.filter(
+            (item) => item.HASIL_HIV && item.HASIL_HIV.trim() !== ""
+          ).length;
+          let totalSIVILIS = filteredData.filter(
+            (item) => item.SIVILIS && item.SIVILIS.trim() !== ""
+          ).length;
+          let hasilSIVILIS = filteredData.filter(
+            (item) => item.HASIL_SIVILIS && item.HASIL_SIVILIS.trim() !== ""
+          ).length;
+          let totalHEPATITIS = filteredData.filter(
+            (item) => item.HEPATITIS && item.HEPATITIS.trim() !== ""
+          ).length;
+          let hasilHEPATITIS = filteredData.filter(
+            (item) => item.HASIL_HEPATITIS && item.HASIL_HEPATITIS.trim() !== ""
+          ).length;
+          let totalMALARIA = filteredData.filter(
+            (item) => item.MALARIA && item.MALARIA.trim() !== ""
+          ).length;
+          let hasilMALARIA = filteredData.filter(
+            (item) => item.HASIL_MALARIA && item.HASIL_MALARIA.trim() !== ""
+          ).length;
+          let totalTBC = filteredData.filter(
+            (item) => item.TBC && item.TBC.trim() !== ""
+          ).length;
+          let hasilTBC = filteredData.filter(
+            (item) => item.HASIL_TBC && item.HASIL_TBC.trim() !== ""
+          ).length;
+          let totalJIWA = filteredData.filter(
+            (item) => item.JIWA && item.JIWA.trim() !== ""
+          ).length;
+          let hasilJIWA = filteredData.filter(
+            (item) => item.HASIL_JIWA && item.HASIL_JIWA.trim() !== ""
+          ).length;
+          let totalEKLAMSI = filteredData.filter(
+            (item) => item.EKLAMSI && item.EKLAMSI.trim() !== ""
+          ).length;
+          let hasilEKLAMSI = filteredData.filter(
+            (item) => item.HASIL_EKLAMSI && item.HASIL_EKLAMSI.trim() !== ""
+          ).length;
+          let totalKSPR = filteredData.filter(
+            (item) => item.KSPR && item.KSPR.trim() !== ""
+          ).length;
+          let hasilKSPR = filteredData.filter(
+            (item) => item.HASIL_KSPR && item.HASIL_KSPR.trim() !== ""
+          ).length;
+          let totalLILA = filteredData.filter(
+            (item) => item.LILA !== ""
+          ).length;
+          let hasilLILA = filteredData.filter(
+            (item) => item.HASIL_LILA && item.HASIL_LILA.trim() === "Y"
+          ).length;
+          let totalTENSI = filteredData.filter(
+            (item) => item.TENSI && item.TENSI.trim() !== ""
+          ).length;
+          let hasilTENSI = filteredData.filter(
+            (item) => item.HASIL_TENSI && item.HASIL_TENSI.trim() !== ""
+          ).length;
+          let totalANEMIA = filteredData.filter(
+            (item) => item.ANEMIA !== ""
+          ).length;
+          let hasilANEMIA = filteredData.filter(
+            (item) => item.HASIL_ANEMIA && item.HASIL_ANEMIA.trim() == "Y"
+          ).length;
+          let totalTD = filteredData.filter(
+            (item) => item.TD && item.TD.trim() !== ""
+          ).length;
+          let hasilTD = filteredData.filter((item) => item.HASIL_TD > 0).length;
+
+          $("#GIGI").text(totalGigi);
+          $("#HASILGIGI").text(hasilGigi);
+          $("#USG").text(totalUSG);
+          $("#HASILUSG").text(hasilUSG);
+          $("#HIV").text(totalHIV);
+          $("#HASILHIV").text(hasilHIV);
+          $("#SIVILIS").text(totalSIVILIS);
+          $("#HASILSIVILIS").text(hasilSIVILIS);
+          $("#HEPATITIS").text(totalHEPATITIS);
+          $("#HASILHEPATITIS").text(hasilHEPATITIS);
+          $("#MALARIA").text(totalMALARIA);
+          $("#HASILMALARIA").text(hasilMALARIA);
+          $("#TBC").text(totalTBC);
+          $("#HASILTBC").text(hasilTBC);
+          $("#JIWA").text(totalJIWA);
+          $("#HASILJIWA").text(hasilJIWA);
+          $("#EKLAMSI").text(totalEKLAMSI);
+          $("#HASILEKLAMSI").text(hasilEKLAMSI);
+          $("#KSPR").text(totalKSPR);
+          $("#HASILKSPR").text(hasilKSPR);
+          $("#LILA").text(totalLILA);
+          $("#HASILLILA").text(hasilLILA);
+          $("#TENSI").text(totalTENSI);
+          $("#HASILTENSI").text(hasilTENSI);
+          $("#ANEMIA").text(totalANEMIA);
+          $("#HASILANEMIA").text(hasilANEMIA);
+          $("#TD").text(totalTD);
+          $("#HASILTD").text(hasilTD);
+        }
+
+        fetchData();
+      });
+    </script>
+    <!-- Template Javascript -->
+    
+  </body>
+</html>
