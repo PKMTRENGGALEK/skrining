@@ -725,11 +725,20 @@
       
      <script>
       $(document).ready(function () {
-        $(".select2").select2({
-          theme: "bootstrap4",
-          width: "100%",
-          allowClear: true,
-        });
+        $(".select2")
+          .select2({
+            theme: "bootstrap4",
+            width: "100%",
+            minimumResultsForSearch: 0,
+          })
+          .on("select2:open", function () {
+            setTimeout(() => {
+              let searchField = document.querySelector(
+                ".select2-container--open .select2-search__field"
+              );
+              if (searchField) searchField.focus();
+            }, 100);
+          });
 
         const apiUrl = "https://script.google.com/macros/s/AKfycbxeDPM5nRIt7TeTfKTgL4PSyCFzzhNlHVbo-jUcSjoeif7dkZYdAvFagPIVH1YnXoOi/exec";
 
