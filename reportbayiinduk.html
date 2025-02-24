@@ -461,8 +461,9 @@
          
           $.getJSON(
             "https://script.google.com/macros/s/AKfycbxZcP-pFoM1xptWu9IgKOHX2wf_UZpJmK5Dl8B_l7i0oWaVBKOmQotEkRSEL4cK29oryg/exec",
-             $("#loading-page").show();
+             
             function (data) {
+              $("#loading-page").show();
               let years = new Set();
               let months = new Set();
               let petugas = new Set();
