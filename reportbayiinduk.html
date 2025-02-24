@@ -58,7 +58,7 @@
       <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <style>
-         #total-skrining-card {
+      #total-skrining-card {
         padding: 40px;
         color: #333;
         background-color: #f8f9fa;
@@ -66,61 +66,55 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
       #loading-page {
-    display: flex;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.loading-text {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #f74780;
-    display: flex;
-    align-items: center;
-}
-
-.loading-dots span {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    margin-left: 5px;
-    background-color: #f74780;
-    border-radius: 50%;
-    animation: bounce 1.5s infinite ease-in-out;
-}
-
-.loading-dots span:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.loading-dots span:nth-child(2) {
-    animation-delay: 0.3s;
-}
-
-.loading-dots span:nth-child(3) {
-    animation-delay: 0.6s;
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-      .card-e:hover {
-        transform: scale(1.05);
-        transition: 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
       }
-    </style>  
+      .dot-spinner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .dot-spinner div {
+        width: 10px;
+        height: 10px;
+        margin: 0 3px;
+        background-color: #f74780;
+        border-radius: 50%;
+        animation: bounce 1.4s infinite ease-in-out both;
+      }
+      .dot-spinner div:nth-child(1) {
+        animation-delay: -0.32s;
+      }
+      .dot-spinner div:nth-child(2) {
+        animation-delay: -0.16s;
+      }
+      .dot-spinner div:nth-child(3) {
+        animation-delay: 0s;
+      }
+
+      @keyframes bounce {
+        0%,
+        80%,
+        100% {
+          transform: scale(0);
+        }
+        40% {
+          transform: scale(1);
+        }
+      }
+      #loading-text {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #f74780;
+      }
+    </style>
   </head>
 
   <body>
@@ -178,7 +172,14 @@
         
     
          <body class="bg-light">
-
+<div id="loading-page">
+      <div class="dot-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div id="loading-text">Memuat data...</div>
+    </div>
             
 
     <div class="container my-4">
@@ -196,23 +197,7 @@
 
           <form id="print_form">
             <!-- Filter Section -->
-            <div id="loading-page">
-      <div class="dot-spinner">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div id="loading-text">Memuat data...</div>
-    </div>
-            <div id="loading-page">
-            <div class="loading-text ">
-                Memuat Data
-                <div class="loading-dots ">
-                    <span class="text-primary"></span>
-                    <span class="text-primary"></span>
-                    <span class="text-primary"></span>
-                </div>
-            </div>
+         
             <div class="row mb-3">
               <div class="col-md-4">
                 <label for="tahun">Tahun:</label>
