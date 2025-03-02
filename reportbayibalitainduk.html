@@ -367,6 +367,7 @@
 
     function fetchData() {
         $.getJSON("https://script.google.com/macros/s/AKfycbxE6X-FHpyNcMHxc1L-exsmHtbeh2Gsa_x9vxRQqH_3Wzs78UOjBIFkRzYJbuSmxMgN/exec", function (data) {
+             $("#loading-page").show();
             let years = new Set();
             let months = new Set();
             let petugas = new Set();
@@ -393,7 +394,7 @@
             // Populate Petugas
             let petugasSelect = $("#petugas").empty().append('<option value="">Semua Petugas</option>');
             petugas.forEach(name => petugasSelect.append(new Option(name, name)));
-
+              $("#loading-page").hide();
             // Set event listener untuk tombol filter setelah data dimuat
             $("#filter-button").off("click").on("click", function () {
                 if (!$("#tahun").val()) {
