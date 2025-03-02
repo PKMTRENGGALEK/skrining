@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>PKM TGLK | SKRINING</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Rubik:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css"
+    />
+    <!-- Libraries Stylesheet -->
+    <link href="animate.min.css" rel="stylesheet" />
+    <link href="owl.carousel.min.css" rel="stylesheet" />
+    <link href="lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="bootstrap.min.css" rel="stylesheet" />
+
+    <!-- DataTables JS -->
+    <link
+      href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Template Stylesheet -->
+    <link href="style.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@1.5.2/dist/select2-bootstrap4.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- jQuery & Select2 -->
+<!--     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      #total-skrining-card {
+        padding: 40px;
+        color: #333;
+        background-color: #f8f9fa;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      #loading-page {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
+      }
+      .dot-spinner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .dot-spinner div {
+        width: 10px;
+        height: 10px;
+        margin: 0 3px;
+        background-color: #f74780;
+        border-radius: 50%;
+        animation: bounce 1.4s infinite ease-in-out both;
+      }
+      .dot-spinner div:nth-child(1) {
+        animation-delay: -0.32s;
+      }
+      .dot-spinner div:nth-child(2) {
+        animation-delay: -0.16s;
+      }
+      .dot-spinner div:nth-child(3) {
+        animation-delay: 0s;
+      }
+
+      @keyframes bounce {
+        0%,
+        80%,
+        100% {
+          transform: scale(0);
+        }
+        40% {
+          transform: scale(1);
+        }
+      }
+      #loading-text {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #f74780;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Spinner Start -->
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div
+        class="spinner-border text-primary"
+        style="width: 3rem; height: 3rem"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid header position-relative overflow-hidden p-0">
+      <nav
+        class="navbar navbar-expand-lg fixed-top navbar-light px-4 px-lg-5 py-3 py-lg-0"
+      >
+        <a href="index.html" class="navbar-brand p-0">
+          <h1 class="display-6 text-primary m-0">
+            <i class="fas fa-hand-holding-medical"></i> Puskesmas Trenggalek
+          </h1>
+          <!-- <img src="img/logo.png" alt="Logo"> -->
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+        >
+          <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto py-0">
+            <a href="index.html" class="nav-item nav-link">Home</a>
+            <a href="screening.html" class="nav-item nav-link">Screening</a>
+            <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Header Start -->
+      <div class="hero-header overflow-hidden px-5">
+        <div class="rotate-img">
+<!--           <img src="img/sty-1.png" class="img-fluid w-100" alt="" /> -->
+          <div class="rotate-sty-2"></div>
+        </div>
+<!--         https://docs.google.com/spreadsheets/d/1b-t0uL56KjwjFl0BbzNTp0my2yTaYqrwgosDyXDuDsM/edit?usp=sharing -->
+        
+    
+         <body class="bg-light">
+<div id="loading-page">
+      <div class="dot-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div id="loading-text">Memuat data...</div>
+    </div>
+            
+
+    <div class="container my-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <div class="header text-center mb-3">
+            <h2>REKAP SKRINING KLASTER 2</h2>
+            <p>
+              <strong
+                >SKRINING IBU HAMIL, NIFAS, BAYI, BALITA PUSKESMAS TRENGGALEK
+                KABUPATEN TRENGGALEK</strong
+              >
+            </p>
+          </div>
+
+          <form id="print_form">
+            <!-- Filter Section -->
+         
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="tahun">Tahun:</label>
+                <select
+                  id="tahun"
+                  class="form-select select2"
+                  aria-label="Pilih Tahun"
+                >
+                  <option value="">Pilih Tahun</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="bulan">Bulan:</label>
+                <select
+                  id="bulan"
+                  class="form-select select2"
+                  aria-label="Pilih Bulan"
+                >
+                  <option value="">Semua Bulan</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="petugas">Petugas:</label>
+                <select
+                  id="petugas"
+                  class="form-select select2"
+                  aria-label="Pilih Petugas"
+                >
+                  <option value="">Semua Petugas</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Tombol Filter -->
+            <div class="text-center mb-4">
+              <button type="button" id="filter-button" class="btn btn-warning">
+                Filter Data
+              </button>
+            </div>
+
+            <!-- Total Skrining Section -->
+            <div class="d-flex justify-content-center">
+              <div class="card shadow">
+                <div class="card-body">
+                  <h3>Total Skrining</h3>
+                  <p class="fs-1 text-center" id="total-skrining">0</p>
+                </div>
+              </div>
+              <!-- <div id="total-skrining-card" class="text-center w-25 shadow">
+                <h3>Total Skrining</h3>
+                <p class="fs-1" id="total-skrining">0</p>
+              </div> -->
+            </div>
+
+            <!-- Tabel Laporan -->
+            <div class="table-responsive">
+              <table class="table table-bordered text-center mt-4 shadow">
+                <thead class="table-primary">
+                  <tr>
+                    <th>No</th>
+                    <th>Indikator</th>
+                    <th>Total Skrining</th>
+                    <th>Ditemukan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td class="text-start">Skrining TBC</td>
+                    <td id="TBC">-</td>
+                    <td id="HASILTBC">-</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td class="text-start">Skrining Gigi dan Mulut</td>
+                    <td id="GIGI">-</td>
+                    <td id="HASILGIGI">-</td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+            
+
+      
+        </div>
+      </div>
+    </div>
+    
+ 
+
+
+        <!-- </div> -->
+      </div>
+
+      <!-- Hero Header End -->
+    </div>
+    <!-- Navbar & Hero End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-2 fixed-bottom">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-md-0">
+            <span class="text-white"
+              ><a href="#"
+                ><i class="fas fa-copyright text-light me-2"></i>Skrining
+                Puskesmas Trenggalek</a
+              >
+              , All right reserved.</span
+            >
+          </div>
+          <div class="col-md-6 text-center text-md-end text-white">
+            Designed By
+            <a class="border-bottom" href="https://htmlcodex.com"
+              >@Yoga | 2024</a
+            >
+            <!-- Distributed By
+            <a class="border-bottom" href="https://themewagon.com"
+              >ThemeWagon</a
+            > -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <!-- <a href="#" class="btn btn-primary btn-lg-square back-to-top"
+      ><i class="fa fa-arrow-up"></i
+    ></a> -->
+
+  
+    <!-- DataTables JS -->
+   <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="wow.min.js"></script>
+    <script src="easing.min.js"></script>
+    <script src="waypoints.min.js"></script>
+    <script src="counterup.min.js"></script>
+    <script src="owl.carousel.min.js"></script>
+    <script src="lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="main.js"></script>
+    <script>
+      $(document).ready(function () {
+    // Inisialisasi Select2
+    $(".select2").select2({
+        theme: "bootstrap4",
+        width: "100%",
+        minimumResultsForSearch: 0,
+    }).on("select2:open", function () {
+        setTimeout(() => {
+            let searchField = document.querySelector(".select2-container--open .select2-search__field");
+            if (searchField) searchField.focus();
+        }, 100);
+    });
+
+    function fetchData() {
+        $.getJSON("https://script.google.com/macros/s/AKfycbxE6X-FHpyNcMHxc1L-exsmHtbeh2Gsa_x9vxRQqH_3Wzs78UOjBIFkRzYJbuSmxMgN/exec", function (data) {
+            let years = new Set();
+            let months = new Set();
+            let petugas = new Set();
+
+            data.forEach((item) => {
+                let date = new Date(item.TANGGAL);
+                if (!isNaN(date.getTime())) {
+                    years.add(date.getFullYear());
+                    months.add(date.toLocaleString("id-ID", { month: "long" }));
+                }
+                if (item.petugas && item.petugas !== "NaN") {
+                    petugas.add(item.petugas);
+                }
+            });
+
+            // Populate Tahun
+            let tahunSelect = $("#tahun").empty().append('<option value="">Pilih Tahun</option>');
+            years.forEach(year => tahunSelect.append(new Option(year, year)));
+
+            // Populate Bulan
+            let bulanSelect = $("#bulan").empty().append('<option value="">Semua Bulan</option>');
+            months.forEach(month => bulanSelect.append(new Option(month, month)));
+
+            // Populate Petugas
+            let petugasSelect = $("#petugas").empty().append('<option value="">Semua Petugas</option>');
+            petugas.forEach(name => petugasSelect.append(new Option(name, name)));
+
+            // Set event listener untuk tombol filter setelah data dimuat
+            $("#filter-button").off("click").on("click", function () {
+                if (!$("#tahun").val()) {
+                    Swal.fire({
+                        icon: "warning",
+                        title: "Oops...",
+                        text: "Pastikan filter Tahun telah dipilih!",
+                        timer: 2000,
+                        showConfirmButton: false,
+                        width: "300px",
+                    });
+                    return;
+                }
+                updateSkriningData(data);
+            });
+        });
+    }
+
+    function updateSkriningData(data) {
+        let tahun = $("#tahun").val();
+        let bulan = $("#bulan").val();
+        let petugas = $("#petugas").val();
+
+        let filteredData = data.filter((item) => {
+            let date = new Date(item.TANGGAL);
+            let yearMatch = !tahun || date.getFullYear().toString() === tahun;
+            let monthMatch = !bulan || date.toLocaleString("id-ID", { month: "long" }) === bulan;
+            let petugasMatch = !petugas || item.petugas === petugas;
+            return yearMatch && monthMatch && petugasMatch;
+        });
+
+        $("#total-skrining").text(filteredData.length);
+
+        let totalTBC = filteredData.filter(item => item.TBC) .length;
+        let hasilTBC = filteredData.filter(item => parseInt(item.Hasil_Tbc) > 0).length;
+        let totalGIGI = filteredData.filter(item => item.Karies) .length;
+        let hasilGIGI = filteredData.filter(item => item.Karies).length;
+
+        $("#TBC").text(totalTBC);
+        $("#HASILTBC").text(hasilTBC);
+        $("#GIGI").text(totalGIGI);
+        $("#HASILGIGI").text(hasilGIGI);
+    }
+
+    fetchData(); // Panggil fetchData saat halaman dimuat
+    // Menambahkan logo bayi di kanan dan kiri total skrining
+    $(".d-flex.justify-content-center").prepend('<img src="baby.jpg" alt="Logo Bayi" style="width: 50px; height: 50px; margin-right: 10px;">');
+    $(".d-flex.justify-content-center").append('<img src="baby.jpg" alt="Logo Bayi" style="width: 50px; height: 50px; margin-left: 10px;">');
+});
+    </script>
+    <!-- Template Javascript -->
+    
+  </body>
+</html>
