@@ -798,7 +798,7 @@
               $("#Skriningobesitas-60TEMU").text(filteredData.filter(item => item.Hasil_obesitas && parseInt(item.USIA)  >= 60).length);
              
               $("#ht-59").text(filteredData.filter(item => item.Dilakukan_skrining_HT && parseInt(item.USIA) <= 59).length);
-              $("#hasilht59").text(filteredData.filter(item => item.Ditemukan_HT && parseInt(item.USIA) <= 59).length);
+              $("#ht-59temu").text(filteredData.filter(item => item.Ditemukan_HT && parseInt(item.USIA) <= 59).length);
               $("#ht-60").text(filteredData.filter(item => item.Dilakukan_skrining_HT && parseInt(item.USIA) >= 60).length);
               $("#ht-60temu").text(filteredData.filter(item => item.Ditemukan_HT && parseInt(item.USIA) >= 60).length);
 
