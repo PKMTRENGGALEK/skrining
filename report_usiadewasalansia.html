@@ -287,7 +287,7 @@
                     <td>2</td>
                     <td class="text-start">SKRINING HT</td>
                     <td id="ht-59">-</td>
-                    <td id="ht-59temu">-</td>
+                    <td id="ht_59temu">-</td>
                     <td id="ht-60">-</td>
                     <td id="ht-60temu">-</td>
                 </tr>
@@ -486,7 +486,7 @@
               const obes60 = document.getElementById('Skriningobesitas-60').innerText;
               const obestemu60 = document.getElementById('Skriningobesitas-60ketemu').innerText;
               const ht_59 = document.getElementById('ht-59').innerText;
-              const ht59_temu = document.getElementById('ht-59temu').innerText;
+              const ht59_temu = document.getElementById('ht_59temu').innerText;
               const ht60 = document.getElementById('ht-60').innerText;
               const ht60temu = document.getElementById('ht-60temu').innerText;
               const stroke59 = document.getElementById('stroke-59').innerText;
@@ -798,7 +798,7 @@
               $("#Skriningobesitas-60TEMU").text(filteredData.filter(item => item.Hasil_obesitas && parseInt(item.USIA)  >= 60).length);
              
               $("#ht-59").text(filteredData.filter(item => item.Dilakukan_skrining_HT && parseInt(item.USIA) <= 59).length);
-              $("#ht-59temu").text(filteredData.filter(item => item.Ditemukan_HT && parseInt(item.USIA) <= 59).length);
+              $("#ht_59temu").text(filteredData.filter(item => item.Ditemukan_HT && parseInt(item.USIA) <= 59).length);
               $("#ht-60").text(filteredData.filter(item => item.Dilakukan_skrining_HT && parseInt(item.USIA) >= 60).length);
               $("#ht-60temu").text(filteredData.filter(item => item.Ditemukan_HT && parseInt(item.USIA) >= 60).length);
 
