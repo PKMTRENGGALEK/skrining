@@ -281,7 +281,7 @@
                     <td id="Skriningobesitas-59">-</td>
                     <td id="Skriningobesitas-59TEMU">-</td>
                     <td id="Skriningobesitas-60">-</td>
-                    <td id="Skriningobesitas-60ketemu">-</td>
+                    <td id="obes60temu">-</td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -484,7 +484,7 @@
               const Skriningobesitas1 = document.getElementById('Skriningobesitas-59').innerText;
               const obestemu59 = document.getElementById('Skriningobesitas-59TEMU').innerText;
               const obes60 = document.getElementById('Skriningobesitas-60').innerText;
-              const obestemu60 = document.getElementById('Skriningobesitas-60ketemu').innerText;
+              const obes60temu = document.getElementById('obes60temu').innerText;
               const ht_59 = document.getElementById('ht-59').innerText;
               const hasilht59 = document.getElementById('ht-59temu').innerText;
               const ht60 = document.getElementById('ht-60').innerText;
@@ -576,7 +576,7 @@
               localStorage.setItem('nippj', nippj);
               localStorage.setItem('nipkaryawan', nipkaryawan);
               localStorage.setItem('obes60', obes60);
-              localStorage.setItem('obestemu60', obestemu60);
+              localStorage.setItem('obes60temu', obes60temu);
               localStorage.setItem('ht_59', ht_59);
               localStorage.setItem('hasilht59', hasilht59);
               localStorage.setItem('ht60', ht60);
@@ -795,7 +795,7 @@
               $("#Skriningobesitas-59").text(filteredData.filter(item => item.Dilakukan_skrining_obesitas && parseInt(item.USIA) <= 59).length);
               $("#Skriningobesitas-59TEMU").text(filteredData.filter(item => item.Hasil_obesitas && parseInt(item.USIA) <= 59).length);
               $("#Skriningobesitas-60").text(filteredData.filter(item => item.Dilakukan_skrining_obesitas && parseInt(item.USIA) >= 60).length);
-              $("#Skriningobesitas-60TEMU").text(filteredData.filter(item => item.Hasil_obesitas && parseInt(item.USIA)  >= 60).length);
+              $("#obes60temu").text(filteredData.filter(item => item.Hasil_obesitas && parseInt(item.USIA)  >= 60).length);
              
               $("#ht-59").text(filteredData.filter(item => item.Dilakukan_skrining_HT && parseInt(item.USIA) <= 59).length);
               $("#ht-59temu").text(filteredData.filter(item => item.Ditemukan_HT && parseInt(item.USIA) <= 59).length);
